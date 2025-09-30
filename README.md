@@ -2,9 +2,7 @@ Kingdom Crushers is a lightweight yet beautiful open world MMO, inspired by ROTM
 
 <a href="https://kingdomcrushers.io">kingdomcrushers.io</a>
 
-<a href="https://play.google.com/store/apps/details?id=com.williamqm.mmorelam"> Play Store</a>
-
-<a href="https://play.google.com/store/apps/details?id=com.example.app" target="_blank">
+<a href="https://play.google.com/store/apps/details?id=com.williamqm.mmorelam" target="_blank">
   <img alt="Get it on Google Play"
        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
        height="80"/>
