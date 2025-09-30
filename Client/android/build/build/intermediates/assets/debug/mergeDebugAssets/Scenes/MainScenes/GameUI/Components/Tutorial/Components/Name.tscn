@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Resources/UI/Input.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/Panel.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Tutorial/Components/Name.gd" type="Script" id=3]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/UI/TitleText.tres" type="Theme" id=5]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=7]
+
+[sub_resource type="Gradient" id=105]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=107]
+gradient = SubResource( 105 )
+fill_from = Vector2( 1, 0.5 )
+fill_to = Vector2( 1, 0.505882 )
+
+[sub_resource type="Gradient" id=106]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=108]
+gradient = SubResource( 106 )
+fill_from = Vector2( 0, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[sub_resource type="DynamicFont" id=43]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=44]
+Label/colors/font_color = Color( 1, 0, 0, 1 )
+Label/fonts/font = SubResource( 43 )
+
+[node name="Name" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="DarkScreen" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.611765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 107 )
+expand = true
+
+[node name="Vignette" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.631373 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 108 )
+expand = true
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -334.0
+margin_top = -227.5
+margin_right = 334.0
+margin_bottom = 227.5
+theme = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 604.0
+margin_bottom = 391.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 540.0
+margin_bottom = 49.0
+size_flags_vertical = 1
+theme = ExtResource( 5 )
+text = "Choose your username"
+align = 1
+
+[node name="Error" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 65.0
+margin_right = 540.0
+margin_bottom = 98.0
+size_flags_vertical = 1
+theme = SubResource( 44 )
+align = 1
+
+[node name="Username" type="LineEdit" parent="Panel/VBoxContainer"]
+margin_top = 114.0
+margin_right = 540.0
+margin_bottom = 211.0
+grow_horizontal = 2
+theme = ExtResource( 1 )
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Continue" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 227.0
+margin_right = 540.0
+margin_bottom = 327.0
+rect_min_size = Vector2( 0, 100 )
+focus_mode = 0
+size_flags_horizontal = 3
+theme = ExtResource( 7 )
+text = "Continue"
+
+[connection signal="focus_entered" from="Panel/VBoxContainer/Username" to="." method="_on_Username_focus_entered"]
+[connection signal="focus_exited" from="Panel/VBoxContainer/Username" to="." method="_on_Username_focus_exited"]
+[connection signal="focus_entered" from="Panel/VBoxContainer/Continue" to="." method="_on_Continue_focus_entered"]
+[connection signal="pressed" from="Panel/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]

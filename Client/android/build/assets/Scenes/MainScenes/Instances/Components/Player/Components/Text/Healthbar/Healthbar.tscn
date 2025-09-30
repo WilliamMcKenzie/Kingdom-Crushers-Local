@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/UI/TextNormal.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/Text/Healthbar/Healthbar.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=105]
+
+[sub_resource type="StyleBoxFlat" id=103]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id=110]
+Panel/styles/panel = SubResource( 105 )
+PanelContainer/styles/panel = SubResource( 103 )
+
+[sub_resource type="ShaderMaterial" id=107]
+
+[sub_resource type="StyleBoxFlat" id=108]
+bg_color = Color( 0, 0.764706, 0.0431373, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=109]
+bg_color = Color( 1, 1, 1, 0 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Healthbar" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 2 )
+
+[node name="Health" type="PanelContainer" parent="."]
+self_modulate = Color( 0, 0, 0, 0.705882 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.0
+margin_top = -8.0
+margin_right = 79.0
+margin_bottom = 8.0
+size_flags_vertical = 4
+theme = SubResource( 110 )
+
+[node name="Healthbar" type="ProgressBar" parent="Health"]
+material = SubResource( 107 )
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 154.0
+margin_bottom = 12.0
+grow_vertical = 2
+rect_min_size = Vector2( 150, 8 )
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 108 )
+custom_styles/bg = SubResource( 109 )
+value = 100.0
+percent_visible = false
+
+[node name="HP" type="Label" parent="Health"]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 108.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource( 1 )
+text = "EXP"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="Health"]
+visible = false
+margin_left = 208.0
+margin_top = 8.0
+margin_right = 308.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 12
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 0.54902 )
+text = "100"
+align = 1
+valign = 1

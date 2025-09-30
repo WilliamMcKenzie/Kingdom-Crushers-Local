@@ -1,0 +1,217 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Resources/UI/MediumTextOutlined.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/characters/npcs.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=3]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Dialogue/Dialogue.gd" type="Script" id=6]
+
+[sub_resource type="Gradient" id=113]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=107]
+gradient = SubResource( 113 )
+fill_from = Vector2( 1, 0.5 )
+fill_to = Vector2( 1, 0.505882 )
+
+[sub_resource type="Gradient" id=114]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=108]
+gradient = SubResource( 114 )
+fill_from = Vector2( 0, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 20, 12 )
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 896, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[sub_resource type="Theme" id=10]
+PanelContainer/styles/panel = SubResource( 1 )
+
+[sub_resource type="Animation" id=115]
+resource_name = "Questions"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0 ]
+}
+
+[sub_resource type="Animation" id=111]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=112]
+resource_name = "Talk"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, 0.0 ]
+}
+
+[node name="Dialogue" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="DarkScreen" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.611765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 107 )
+expand = true
+
+[node name="Vignette" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.631373 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 108 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -240.0
+margin_right = 862.0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 431, 120 )
+
+[node name="Character" type="TextureRect" parent="HBoxContainer"]
+material = ExtResource( 3 )
+margin_right = 360.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 360, 240 )
+rect_pivot_offset = Vector2( 40, 40 )
+size_flags_vertical = 8
+texture = SubResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+margin_left = 364.0
+margin_right = 862.0
+margin_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 320, 0 )
+size_flags_horizontal = 3
+theme = SubResource( 10 )
+
+[node name="Dialogue" type="Label" parent="HBoxContainer/PanelContainer"]
+margin_left = 32.0
+margin_top = 55.0
+margin_right = 466.0
+margin_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 5
+theme = ExtResource( 1 )
+text = "Hello welcome to the tutorial! My name is Kingsly."
+align = 1
+valign = 2
+autowrap = true
+
+[node name="Questions" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -22.5
+margin_right = 50.0
+margin_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 16
+alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Talk"
+anims/Questions = SubResource( 115 )
+anims/RESET = SubResource( 111 )
+anims/Talk = SubResource( 112 )

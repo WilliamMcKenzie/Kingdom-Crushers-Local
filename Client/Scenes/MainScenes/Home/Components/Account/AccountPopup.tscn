@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/ButtonWhite.tres" type="Theme" id=2]
+[ext_resource path="res://Resources/UI/ButtonPurple.tres" type="Theme" id=3]
+[ext_resource path="res://Resources/UI/ButtonBlue.tres" type="Theme" id=4]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=5]
+[ext_resource path="res://Assets/ui/google_icon.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Account/AccountPopup.gd" type="Script" id=7]
+[ext_resource path="res://Assets/npcs/enemies_32x32.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=9]
+
+[sub_resource type="StyleBoxTexture" id=40]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 64.0
+margin_right = 48.0
+margin_top = 64.0
+margin_bottom = 48.0
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 8 )
+region = Rect2( 152, 114, 38, 38 )
+
+[node name="AccountPopup" type="CanvasLayer"]
+script = ExtResource( 7 )
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -307.0
+margin_top = -381.0
+margin_right = 307.0
+margin_bottom = 381.0
+custom_styles/panel = SubResource( 40 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 566.0
+margin_bottom = 714.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="Monster" type="TextureRect" parent="Panel/VBoxContainer"]
+material = ExtResource( 9 )
+margin_right = 502.0
+margin_bottom = 311.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 41 )
+stretch_mode = 6
+
+[node name="Login" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 327.0
+margin_right = 502.0
+margin_bottom = 424.0
+focus_mode = 0
+theme = ExtResource( 4 )
+text = "Login"
+
+[node name="Signup" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 440.0
+margin_right = 502.0
+margin_bottom = 537.0
+focus_mode = 0
+theme = ExtResource( 1 )
+text = "Signup"
+
+[node name="Guest" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 553.0
+margin_right = 502.0
+margin_bottom = 650.0
+theme = ExtResource( 3 )
+text = "Play as guest"
+
+[node name="Google" type="Button" parent="Panel/VBoxContainer"]
+visible = false
+margin_top = 379.0
+margin_right = 502.0
+margin_bottom = 556.0
+focus_mode = 0
+theme = ExtResource( 2 )
+icon = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
+
+[connection signal="pressed" from="Panel/VBoxContainer/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Signup" to="." method="_on_Signup_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Guest" to="." method="_on_Guest_pressed"]

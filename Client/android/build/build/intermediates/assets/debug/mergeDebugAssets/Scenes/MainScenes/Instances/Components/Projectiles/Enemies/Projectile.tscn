@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=1]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Projectiles/Projectile.gd" type="Script" id=2]
+[ext_resource path="res://Assets/projectiles/projectiles_8x8.png" type="Texture" id=3]
+
+[node name="Projectile" type="Sprite"]
+visible = false
+material = ExtResource( 1 )
+rotation = -0.785398
+texture = ExtResource( 3 )
+hframes = 26
+vframes = 26
+frame = 15
+script = ExtResource( 2 )

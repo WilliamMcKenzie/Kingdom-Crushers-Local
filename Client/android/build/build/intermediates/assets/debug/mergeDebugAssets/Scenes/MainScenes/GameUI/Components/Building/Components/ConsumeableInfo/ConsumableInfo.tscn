@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="ConsumableInfo" type="Label"]
+margin_right = 382.0
+margin_bottom = 33.0
+text = "[Double click to use]"
+align = 1

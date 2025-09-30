@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Inventory/Components/Stats/Stat.gd" type="Script" id=4]
+
+[node name="Stat" type="HBoxContainer"]
+margin_right = 362.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+alignment = 1
+script = ExtResource( 4 )
+
+[node name="Stat" type="Label" parent="."]
+margin_top = 8.0
+margin_right = 43.0
+margin_bottom = 41.0
+text = "HP"
+align = 2
+
+[node name="Amount" type="Label" parent="."]
+margin_left = 47.0
+margin_top = 8.0
+margin_right = 296.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+text = "+10"
+align = 2
+
+[node name="Bonus" type="Label" parent="."]
+margin_left = 300.0
+margin_top = 8.0
+margin_right = 362.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0, 0.576471, 1, 1 )
+text = "(+5)"

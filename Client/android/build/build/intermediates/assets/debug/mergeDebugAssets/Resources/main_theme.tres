@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=9 format=2]
+
+[ext_resource path="res://Resources/Roboto.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/ui/border_small.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ui/rectangle_background.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=18]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 20
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=20]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 384, 128 )
+modulate_color = Color( 1, 1, 1, 0.313726 )
+
+[sub_resource type="StyleBoxTexture" id=19]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 36, 36 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 4.0
+margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0, 0, 0.352941 )
+shadow_color = Color( 1, 0, 0, 0 )
+
+[resource]
+Label/fonts/font = SubResource( 18 )
+LineEdit/colors/font_color = Color( 0.85098, 0.85098, 0.85098, 1 )
+LineEdit/fonts/font = SubResource( 21 )
+LineEdit/styles/normal = SubResource( 20 )
+PanelContainer/styles/panel = SubResource( 19 )
+TextEdit/styles/normal = SubResource( 15 )

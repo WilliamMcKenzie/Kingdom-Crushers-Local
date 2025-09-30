@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Building/Components/Materials/Materials.gd" type="Script" id=2]
+
+[node name="Materials" type="GridContainer"]
+margin_right = 332.0
+margin_bottom = 164.0
+size_flags_horizontal = 4
+columns = 4
+script = ExtResource( 2 )

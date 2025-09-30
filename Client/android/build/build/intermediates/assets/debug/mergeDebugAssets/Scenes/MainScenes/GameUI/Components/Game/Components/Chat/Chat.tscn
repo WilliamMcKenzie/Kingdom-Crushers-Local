@@ -1,0 +1,191 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Game/Components/Chat/ChatScroll.gd" type="Script" id=4]
+[ext_resource path="res://Resources/UI/ButtonGUIRenderer.tres" type="Material" id=5]
+[ext_resource path="res://Assets/ui/chat_bubble.png" type="Texture" id=8]
+[ext_resource path="res://Resources/UI/ButtonGUI.tres" type="Theme" id=10]
+
+[sub_resource type="GDScript" id=49]
+script/source = "extends VBoxContainer
+
+var message_node = load(\"res://Scenes/MainScenes/GameUI/Components/Game/Components/Chat/ChatMessage.tscn\")
+
+onready var message_container_node = get_node(\"ScrollContainer/ChatVerticalContainer\")
+onready var input_node = get_node(\"HBoxContainer/Input\")
+
+func _ready():
+	if GameHandler.is_mobile:
+		get_node(\"HBoxContainer/OpenChat\").disconnect(\"pressed\", self, \"_on_OpenChat_pressed\")
+		get_node(\"HBoxContainer/OpenChat/TouchScreenButton\").connect(\"pressed\", self, \"_on_OpenChat_pressed\")
+
+func Message(message, username, classname):
+	var message_instance = message_node.instance()
+	message_container_node.add_child(message_instance)
+	message_instance.SetMessage(message, username, classname)
+
+func _physics_process(delta):
+	if Input.is_action_pressed(\"chat\") and not GameUI.focused:
+		input_node.visible = true
+		input_node.grab_focus()
+	if Input.is_action_pressed(\"command\") and not GameUI.focused:
+		input_node.visible = true
+		input_node.grab_focus()
+		input_node.text = \"/\"
+		input_node.caret_position = 1
+
+func _on_OpenChat_pressed():
+	input_node.visible = not input_node.visible
+
+func _on_Input_text_entered(new_text):
+	Server.Message(new_text)
+	input_node.text = \"\"
+	input_node.focus_mode = Control.FOCUS_NONE
+	input_node.focus_mode = Control.FOCUS_ALL
+
+func _on_Input_focus_entered():
+	GameUI.focused = true
+
+func _on_Input_focus_exited():
+	yield(get_tree().create_timer(0.1), \"timeout\")
+	GameUI.focused = false
+"
+
+[sub_resource type="Animation" id=41]
+resource_name = "Hide"
+length = 0.1
+
+[sub_resource type="Animation" id=42]
+length = 0.001
+
+[sub_resource type="Animation" id=43]
+resource_name = "Show"
+length = 0.1
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[sub_resource type="Theme" id=21]
+VScrollBar/styles/grabber = SubResource( 16 )
+VScrollBar/styles/grabber_highlight = SubResource( 17 )
+VScrollBar/styles/grabber_pressed = SubResource( 18 )
+VScrollBar/styles/scroll = SubResource( 19 )
+VScrollBar/styles/scroll_focus = SubResource( 20 )
+
+[sub_resource type="DynamicFont" id=48]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=50]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0, 0, 0, 0.392157 )
+
+[sub_resource type="StyleBoxTexture" id=51]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="Theme" id=46]
+LineEdit/fonts/font = SubResource( 48 )
+LineEdit/styles/focus = SubResource( 50 )
+LineEdit/styles/normal = SubResource( 51 )
+LineEdit/styles/read_only = SubResource( 50 )
+
+[node name="Chat" type="VBoxContainer"]
+anchor_top = 0.341
+anchor_right = 0.015
+anchor_bottom = 1.0
+margin_top = -0.280029
+margin_right = 571.2
+rect_clip_content = true
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+custom_constants/separation = 32
+alignment = 2
+script = SubResource( 49 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hide = SubResource( 41 )
+anims/RESET = SubResource( 42 )
+anims/Show = SubResource( 43 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_right = 600.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 0, 300 )
+mouse_filter = 2
+size_flags_vertical = 3
+theme = SubResource( 21 )
+scroll_horizontal_enabled = false
+script = ExtResource( 4 )
+
+[node name="ChatVerticalContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 600.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 0, 150 )
+rect_clip_content = true
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 32
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 592.0
+margin_right = 600.0
+margin_bottom = 712.0
+custom_constants/separation = 16
+
+[node name="OpenChat" type="Button" parent="HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+focus_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 10 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/OpenChat"]
+material = ExtResource( 5 )
+position = Vector2( 20, 20 )
+scale = Vector2( 8, 8 )
+z_index = 22
+normal = ExtResource( 8 )
+
+[node name="Input" type="LineEdit" parent="HBoxContainer"]
+visible = false
+margin_left = 136.0
+margin_right = 600.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 46 )
+placeholder_text = "Type here"
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.5
+
+[connection signal="pressed" from="HBoxContainer/OpenChat" to="." method="_on_OpenChat_pressed"]
+[connection signal="focus_entered" from="HBoxContainer/Input" to="." method="_on_Input_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/Input" to="." method="_on_Input_focus_exited"]
+[connection signal="text_entered" from="HBoxContainer/Input" to="." method="_on_Input_text_entered"]

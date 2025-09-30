@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/ColorGear.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=3]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=4]
+[ext_resource path="res://Assets/characters/characters_8x8.png" type="Texture" id=5]
+[ext_resource path="res://Resources/UI/TextNormal.tres" type="Theme" id=6]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Leaderboard/Components/Character.gd" type="Script" id=7]
+[ext_resource path="res://Resources/UI/TitleText.tres" type="Theme" id=8]
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 64.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[sub_resource type="Theme" id=8]
+PanelContainer/styles/panel = SubResource( 7 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 80, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 40, 10, 10 )
+
+[node name="Character" type="PanelContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+size_flags_horizontal = 3
+theme = SubResource( 8 )
+script = ExtResource( 7 )
+
+[node name="Container" type="HBoxContainer" parent="."]
+margin_left = 64.0
+margin_top = 32.0
+margin_right = 953.0
+margin_bottom = 152.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/separation = 8
+
+[node name="Data" type="HBoxContainer" parent="Container"]
+margin_right = 449.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_constants/separation = 32
+
+[node name="Name" type="Label" parent="Container/Data"]
+margin_top = 35.0
+margin_right = 294.0
+margin_bottom = 84.0
+theme = ExtResource( 8 )
+text = "1. WilliamQM"
+
+[node name="Reputation" type="Label" parent="Container/Data"]
+margin_left = 326.0
+margin_top = 43.0
+margin_right = 449.0
+margin_bottom = 76.0
+theme = ExtResource( 6 )
+text = "Lv. 1200"
+
+[node name="Visuals" type="HBoxContainer" parent="Container"]
+margin_left = 457.0
+margin_right = 889.0
+margin_bottom = 120.0
+mouse_filter = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="Gear" type="HBoxContainer" parent="Container/Visuals"]
+margin_right = 188.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="weapon" type="TextureRect" parent="Container/Visuals/Gear"]
+material = ExtResource( 3 )
+margin_top = 30.0
+margin_right = 60.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_vertical = 4
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="helmet" type="TextureRect" parent="Container/Visuals/Gear"]
+material = ExtResource( 3 )
+margin_left = 64.0
+margin_top = 30.0
+margin_right = 124.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_vertical = 4
+texture = SubResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="armor" type="TextureRect" parent="Container/Visuals/Gear"]
+material = ExtResource( 3 )
+margin_left = 128.0
+margin_top = 30.0
+margin_right = 188.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_vertical = 4
+texture = SubResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="CharacterContainer" type="TextureRect" parent="Container/Visuals"]
+margin_left = 192.0
+margin_right = 432.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 240, 120 )
+mouse_filter = 2
+expand = true
+stretch_mode = 5
+
+[node name="Sprite" type="Sprite" parent="Container/Visuals/CharacterContainer"]
+material = ExtResource( 3 )
+position = Vector2( 120, 60 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+flip_h = true
+hframes = 4
+vframes = 4
+region_enabled = true
+region_rect = Rect2( 0, 0, 80, 40 )
+script = ExtResource( 2 )

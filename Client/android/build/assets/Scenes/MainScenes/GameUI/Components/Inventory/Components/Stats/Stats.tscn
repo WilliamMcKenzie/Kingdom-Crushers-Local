@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Inventory/Components/Stats/Stats.gd" type="Script" id=1]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=2]
+
+[node name="Stats" type="VBoxContainer"]
+margin_right = 396.0
+margin_bottom = 104.0
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 396.0
+margin_bottom = 33.0
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 0.607843 )
+text = "On Equip:"
+align = 1

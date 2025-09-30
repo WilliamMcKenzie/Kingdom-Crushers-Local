@@ -1,0 +1,212 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/ui/button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ui/blank_button.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Game/Components/MobileButtons/MobileButtons.gd" type="Script" id=4]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=5]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=19]
+size = 64
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=20]
+Label/fonts/font = SubResource( 19 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 180, 220, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 40
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 250, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 5 )
+region = Rect2( 20, 250, 10, 10 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 48
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 40
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="MobileButtons" type="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.862745 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -376.0
+margin_top = -180.0
+margin_right = -376.0
+margin_bottom = -180.0
+custom_constants/separation = 16
+alignment = 2
+script = ExtResource( 4 )
+
+[node name="HelmetButton" type="TouchScreenButton" parent="."]
+self_modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 15, -88 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+passby_press = true
+
+[node name="Timer" type="Label" parent="HelmetButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 20 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "6"
+align = 1
+valign = 1
+
+[node name="Icon" type="TextureButton" parent="HelmetButton"]
+margin_left = 54.0
+margin_top = 49.0
+margin_right = 154.0
+margin_bottom = 149.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = SubResource( 5 )
+texture_disabled = SubResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="HelmetButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 16 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+text = "[SPACE]"
+
+[node name="HomeButton" type="TouchScreenButton" parent="."]
+self_modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 216, 20 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+
+[node name="Icon" type="TextureButton" parent="HomeButton"]
+margin_left = 49.0
+margin_top = 46.0
+margin_right = 149.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = SubResource( 7 )
+texture_disabled = SubResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="Port" type="TextureButton" parent="HomeButton"]
+visible = false
+margin_left = 49.0
+margin_top = 46.0
+margin_right = 149.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 100, 100 )
+rect_rotation = 0.348904
+texture_normal = SubResource( 18 )
+texture_disabled = SubResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="HomeButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -40.0
+rect_scale = Vector2( 1.25, 1.25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+text = "[R]"
+
+[node name="Misc" type="TouchScreenButton" parent="."]
+self_modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 215, -161 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+
+[node name="Enter" type="Button" parent="Misc"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -40.0
+rect_scale = Vector2( 1.25, 1.25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+text = "Enter"
+
+[node name="Talk" type="Button" parent="Misc"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -40.0
+rect_scale = Vector2( 1.25, 1.25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+text = "Talk"
+
+[connection signal="pressed" from="HelmetButton" to="." method="_on_HelmetButton_pressed"]
+[connection signal="mouse_entered" from="HelmetButton/Icon" to="." method="_on_HelmetButton_mouse_entered"]
+[connection signal="mouse_exited" from="HelmetButton/Button" to="." method="_on_HelmetButton_mouse_exited"]
+[connection signal="pressed" from="HelmetButton/Button" to="." method="_on_HelmetButton_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_HomeButton_pressed"]
+[connection signal="mouse_entered" from="HomeButton/Icon" to="." method="_on_HomeButton_mouse_entered"]
+[connection signal="pressed" from="HomeButton/Icon" to="." method="_on_HomeButton_pressed"]
+[connection signal="mouse_entered" from="HomeButton/Port" to="." method="_on_HomeButton_mouse_entered"]
+[connection signal="pressed" from="HomeButton/Port" to="." method="_on_HomeButton_pressed"]
+[connection signal="mouse_exited" from="HomeButton/Button" to="." method="_on_HomeButton_mouse_exited"]
+[connection signal="pressed" from="HomeButton/Button" to="." method="_on_HomeButton_pressed"]
+[connection signal="pressed" from="Misc" to="." method="_on_EnterButton_pressed"]
+[connection signal="mouse_exited" from="Misc/Enter" to="." method="_on_EnterButton_mouse_exited"]
+[connection signal="pressed" from="Misc/Enter" to="." method="_on_EnterButton_pressed"]
+[connection signal="mouse_exited" from="Misc/Talk" to="." method="_on_EnterButton_mouse_exited"]
+[connection signal="pressed" from="Misc/Talk" to="." method="_on_Talk_pressed"]

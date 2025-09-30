@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Main/Server.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Main/Port.tscn" type="PackedScene" id=2]
+
+[node name="Server" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="TokenExpiration" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="VerificationExpiration" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Instances" type="Node" parent="."]
+
+[node name="port" parent="Instances" instance=ExtResource( 2 )]
+
+[connection signal="timeout" from="TokenExpiration" to="." method="_on_TokenExpiration_timeout"]
+[connection signal="timeout" from="VerificationExpiration" to="." method="_on_VerificationExpiration_timeout"]

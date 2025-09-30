@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=1]
+[ext_resource path="res://Assets/characters/npcs.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Objects/Npcs/npc.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5, 5 )
+
+[node name="npc" type="Node2D"]
+script = ExtResource( 3 )
+npc_name = "old_fisherman"
+dialogue_trigger = "Fisherman"
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 1 )
+position = Vector2( -2, -5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 60, 0, 20, 12 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -4, -4 )
+collision_layer = 8
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )

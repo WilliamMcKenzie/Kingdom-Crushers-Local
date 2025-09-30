@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Game/Game.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/MainScenes/GameUI/GameUI.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=34]
+resource_name = "Ability"
+length = 0.3
+
+[sub_resource type="Animation" id=32]
+resource_name = "Backpack"
+length = 0.3
+
+[sub_resource type="Animation" id=38]
+resource_name = "ChooseName"
+
+[sub_resource type="Animation" id=36]
+resource_name = "Final"
+length = 0.3
+
+[sub_resource type="Animation" id=40]
+resource_name = "Quest"
+
+[sub_resource type="Animation" id=33]
+length = 0.001
+
+[sub_resource type="Animation" id=37]
+resource_name = "Start"
+length = 0.1
+
+[sub_resource type="Animation" id=35]
+resource_name = "Stats"
+length = 0.3
+
+[node name="GameUI" type="CanvasLayer"]
+layer = 5
+script = ExtResource( 2 )
+
+[node name="TutorialAnimations" type="AnimationPlayer" parent="."]
+anims/Ability = SubResource( 34 )
+anims/Backpack = SubResource( 32 )
+anims/ChooseName = SubResource( 38 )
+anims/Final = SubResource( 36 )
+anims/Quest = SubResource( 40 )
+anims/RESET = SubResource( 33 )
+anims/Start = SubResource( 37 )
+anims/Stats = SubResource( 35 )
+
+[node name="Container" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Game" parent="Container" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 1888.0
+margin_bottom = 1048.0

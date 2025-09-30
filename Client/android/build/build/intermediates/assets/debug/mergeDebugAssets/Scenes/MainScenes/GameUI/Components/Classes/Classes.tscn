@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Classes/Components/Navigator/Navigator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Classes/Classes.gd" type="Script" id=14]
+
+[sub_resource type="Gradient" id=117]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=115]
+gradient = SubResource( 117 )
+fill_from = Vector2( 1, 0.5 )
+fill_to = Vector2( 1, 0.505882 )
+
+[sub_resource type="Gradient" id=118]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=116]
+gradient = SubResource( 118 )
+fill_from = Vector2( 0, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[node name="Classes" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 14 )
+
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="DarkScreen" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.611765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 115 )
+expand = true
+
+[node name="Vignette" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.631373 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 116 )
+expand = true
+
+[node name="Navigator" parent="." instance=ExtResource( 4 )]

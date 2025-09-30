@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/Text/ChatBubble/ChatBubble.gd" type="Script" id=1]
+[ext_resource path="res://Resources/UI/TextNormal.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 896, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0.913725, 0.172549, 0.172549, 1 )
+
+[sub_resource type="Theme" id=2]
+PanelContainer/styles/panel = SubResource( 1 )
+
+[node name="ChatBubble" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 1 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -44.5
+margin_right = 160.0
+margin_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 320, 0 )
+theme = SubResource( 2 )
+
+[node name="Label" type="Label" parent="PanelContainer"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 288.0
+margin_bottom = 101.0
+grow_horizontal = 2
+size_flags_horizontal = 5
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0.729412, 0.729412, 1 )
+text = "You fools will die here!"
+align = 1
+valign = 2
+autowrap = true

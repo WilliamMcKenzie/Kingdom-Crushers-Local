@@ -1,0 +1,189 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Graveyard/Graveyard.gd" type="Script" id=1]
+[ext_resource path="res://Resources/UI/ButtonBlue.tres" type="Theme" id=2]
+[ext_resource path="res://Resources/UI/TitleTextOutlined.tres" type="Theme" id=3]
+[ext_resource path="res://Resources/UI/ButtonPurple.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Leaderboard/ScrollContainer.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Graveyard/Components/Character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=7]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=8]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=9]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=10]
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 220, 10, 10 )
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="StyleBoxEmpty" id=28]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="Theme" id=26]
+VScrollBar/styles/grabber = SubResource( 21 )
+VScrollBar/styles/grabber_highlight = SubResource( 28 )
+VScrollBar/styles/grabber_pressed = SubResource( 23 )
+VScrollBar/styles/scroll = SubResource( 24 )
+VScrollBar/styles/scroll_focus = SubResource( 25 )
+
+[sub_resource type="StyleBoxEmpty" id=27]
+
+[node name="Graveyard" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="NavbarContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 324.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+
+[node name="Navbar" type="VBoxContainer" parent="NavbarContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1904.0
+margin_bottom = 324.0
+
+[node name="Row1" type="HBoxContainer" parent="NavbarContainer/Navbar"]
+margin_right = 1888.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+custom_constants/separation = 8
+
+[node name="Back" type="Button" parent="NavbarContainer/Navbar/Row1"]
+margin_right = 206.0
+margin_bottom = 100.0
+theme = ExtResource( 4 )
+text = "Back"
+
+[node name="Divider" type="Control" parent="NavbarContainer/Navbar/Row1"]
+margin_left = 214.0
+margin_right = 1358.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Gold" type="Button" parent="NavbarContainer/Navbar/Row1"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 1366.0
+margin_right = 1616.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 0 )
+theme = ExtResource( 7 )
+align = 2
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavbarContainer/Navbar/Row1/Gold"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -28.0
+alignment = 2
+
+[node name="Label" type="Label" parent="NavbarContainer/Navbar/Row1/Gold/HBoxContainer"]
+margin_left = 118.0
+margin_top = 33.0
+margin_right = 138.0
+margin_bottom = 66.0
+theme = ExtResource( 8 )
+text = "0"
+
+[node name="GoldIcon" type="TextureButton" parent="NavbarContainer/Navbar/Row1/Gold/HBoxContainer"]
+material = ExtResource( 9 )
+margin_left = 142.0
+margin_right = 222.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 80, 0 )
+mouse_filter = 2
+texture_normal = SubResource( 29 )
+expand = true
+stretch_mode = 5
+
+[node name="BuyGold" type="Button" parent="NavbarContainer/Navbar/Row1"]
+margin_left = 1624.0
+margin_right = 1888.0
+margin_bottom = 100.0
+theme = ExtResource( 7 )
+text = "Buy gold"
+align = 2
+expand_icon = true
+
+[node name="Row2" type="HBoxContainer" parent="NavbarContainer/Navbar"]
+margin_top = 104.0
+margin_right = 1888.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 100 )
+custom_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="NavbarContainer/Navbar/Row2"]
+margin_left = 820.0
+margin_top = 25.0
+margin_right = 1067.0
+margin_bottom = 74.0
+grow_horizontal = 0
+theme = ExtResource( 3 )
+text = "Graveyard"
+align = 2
+
+[node name="Row3" type="HBoxContainer" parent="NavbarContainer/Navbar"]
+margin_top = 208.0
+margin_right = 1888.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 0, 100 )
+custom_constants/separation = 8
+alignment = 1
+
+[node name="Recent" type="Button" parent="NavbarContainer/Navbar/Row3"]
+margin_left = 726.0
+margin_right = 965.0
+margin_bottom = 100.0
+focus_mode = 0
+theme = ExtResource( 2 )
+disabled = true
+text = "Recent"
+
+[node name="Top" type="Button" parent="NavbarContainer/Navbar/Row3"]
+margin_left = 973.0
+margin_right = 1161.0
+margin_bottom = 100.0
+focus_mode = 0
+theme = ExtResource( 2 )
+disabled = true
+text = "Top"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 346.0
+custom_constants/margin_right = 64
+custom_constants/margin_left = 64
+custom_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+margin_left = 64.0
+margin_right = 1856.0
+margin_bottom = 718.0
+theme = SubResource( 26 )
+custom_styles/bg = SubResource( 27 )
+scroll_horizontal_enabled = false
+script = ExtResource( 5 )
+
+[node name="Top" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+margin_right = 1792.0
+margin_bottom = 200.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="Character" parent="MarginContainer/ScrollContainer/Top" instance=ExtResource( 6 )]
+margin_right = 1792.0
+margin_bottom = 200.0
+
+[connection signal="pressed" from="NavbarContainer/Navbar/Row1/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="NavbarContainer/Navbar/Row1/BuyGold" to="." method="_on_BuyGold_pressed"]
+[connection signal="pressed" from="NavbarContainer/Navbar/Row3/Recent" to="." method="_on_Recent_pressed"]
+[connection signal="pressed" from="NavbarContainer/Navbar/Row3/Top" to="." method="_on_Top_pressed"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=1]
+[ext_resource path="res://Assets/objects/objects_8x8.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Objects/Obstacles/Obstacle.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 4 )
+
+[node name="WoodenChair" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 1 )
+position = Vector2( 0, -4 )
+texture = ExtResource( 2 )
+hframes = 26
+vframes = 26
+frame = 261
+
+[node name="Obstacle" type="Area2D" parent="."]
+position = Vector2( -4, -8 )
+collision_mask = 23
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+position = Vector2( 4, 4 )
+shape = SubResource( 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( -4, -8 )
+collision_layer = 0
+collision_mask = 23
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 4, 4 )
+shape = SubResource( 3 )

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SuperScaling/SuperScaling.gd" type="Script" id=1]
+
+[node name="SuperScaling" type="Node"]
+script = ExtResource( 1 )
+scale_factor = 2.0
+smoothness = 0.0
+enable_on_play = true
+usage = 1
+msaa = 1
+fxaa = true

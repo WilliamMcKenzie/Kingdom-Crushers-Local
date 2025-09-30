@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Resources/UI/MediumTextOutlined.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=2]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Settings/Components/Setting.gd" type="Script" id=3]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=4]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=5]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 6 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 256, 256, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 24.0
+margin_right = 24.0
+margin_top = 24.0
+margin_bottom = 24.0
+
+[sub_resource type="Theme" id=5]
+CheckBox/colors/font_color = Color( 1, 0, 0, 1 )
+CheckBox/constants/hseparation = 4
+CheckBox/fonts/font = SubResource( 6 )
+CheckBox/icons/checked = SubResource( 7 )
+CheckBox/icons/checked_disabled = SubResource( 7 )
+CheckBox/icons/radio_checked = null
+CheckBox/icons/radio_checked_disabled = null
+CheckBox/icons/radio_unchecked = null
+CheckBox/icons/radio_unchecked_disabled = null
+CheckBox/icons/unchecked = SubResource( 8 )
+CheckBox/icons/unchecked_disabled = SubResource( 8 )
+CheckBox/styles/disabled = SubResource( 4 )
+CheckBox/styles/focus = SubResource( 4 )
+CheckBox/styles/hover = SubResource( 4 )
+CheckBox/styles/hover_pressed = SubResource( 4 )
+CheckBox/styles/normal = SubResource( 4 )
+CheckBox/styles/pressed = SubResource( 4 )
+
+[node name="0" type="HBoxContainer"]
+material = ExtResource( 2 )
+margin_right = 642.0
+margin_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 40, 80 )
+custom_constants/separation = 16
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 313.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 313.0
+margin_bottom = 41.0
+theme = ExtResource( 1 )
+text = "Max FPS"
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+margin_top = 45.0
+margin_right = 313.0
+margin_bottom = 150.0
+custom_colors/font_color = Color( 0.596078, 0.596078, 0.596078, 1 )
+text = "Lower max fps provides more constistency."
+autowrap = true
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 329.0
+margin_top = 19.0
+margin_right = 441.0
+margin_bottom = 131.0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme = SubResource( 5 )
+pressed = true
+align = 1
+icon_align = 1
+expand_icon = true
+
+[connection signal="pressed" from="CheckBox" to="." method="_on_CheckBox_pressed"]

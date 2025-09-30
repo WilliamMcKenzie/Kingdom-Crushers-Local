@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=46]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=42]
+texture = ExtResource( 2 )
+region_rect = Rect2( 384, 128, 128, 128 )
+margin_left = 64.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id=44]
+texture = ExtResource( 2 )
+region_rect = Rect2( 384, 0, 128, 128 )
+margin_left = 64.0
+margin_right = 64.0
+margin_top = 64.0
+margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id=45]
+texture = ExtResource( 2 )
+region_rect = Rect2( 384, 128, 128, 128 )
+margin_left = 64.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0.686275, 0.686275, 0.686275, 1 )
+
+[resource]
+Button/colors/font_color = Color( 0.2, 0.188235, 0.313726, 1 )
+Button/colors/font_color_disabled = Color( 0.152941, 0.145098, 0.227451, 0.341176 )
+Button/colors/font_color_focus = Color( 0.141176, 0.133333, 0.215686, 1 )
+Button/colors/font_color_hover = Color( 0.145098, 0.137255, 0.219608, 1 )
+Button/colors/font_color_pressed = Color( 0.152941, 0.145098, 0.227451, 1 )
+Button/fonts/font = SubResource( 46 )
+Button/styles/disabled = SubResource( 42 )
+Button/styles/focus = SubResource( 42 )
+Button/styles/hover = SubResource( 42 )
+Button/styles/normal = SubResource( 44 )
+Button/styles/pressed = SubResource( 45 )

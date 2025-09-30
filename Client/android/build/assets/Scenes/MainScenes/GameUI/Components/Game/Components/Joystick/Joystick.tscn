@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/ui/joystick_tip.png" type="Texture" id=1]
+[ext_resource path="res://Assets/ui/joystick_base_outline.png" type="Texture" id=2]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=54]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=55]
+texture = ExtResource( 4 )
+region_rect = Rect2( 896, 256, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0, 0, 0, 0.294118 )
+
+[sub_resource type="Theme" id=56]
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.501961 )
+Button/fonts/font = SubResource( 54 )
+Button/styles/disabled = SubResource( 55 )
+Button/styles/focus = SubResource( 55 )
+Button/styles/hover = SubResource( 55 )
+Button/styles/normal = SubResource( 55 )
+Button/styles/pressed = SubResource( 55 )
+
+[node name="Joystick" type="Control"]
+margin_right = 200.0
+margin_bottom = 200.0
+
+[node name="Base" type="Button" parent="."]
+margin_right = 150.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 200, 200 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = SubResource( 56 )
+
+[node name="Tip" type="Button" parent="Base"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = SubResource( 56 )
+
+[node name="Bases" type="TextureRect" parent="."]
+visible = false
+margin_right = 400.0
+margin_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 100, 100 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="Tip" type="TextureRect" parent="Bases"]
+visible = false
+modulate = Color( 0, 0, 0, 0.392157 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -150.0
+margin_right = -50.0
+margin_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 1 )
+stretch_mode = 6

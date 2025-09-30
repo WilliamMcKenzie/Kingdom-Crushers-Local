@@ -1,0 +1,160 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Resources/Outline.gdshader" type="Shader" id=1]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=2]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/Text/Nametag/Nametag.gd" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 1 )
+shader_param/max_line_width = 1.205
+shader_param/min_line_width = 0.702
+shader_param/freq = 0.0
+shader_param/block_size = 22220.2
+shader_param/starting_colour = Plane( 0, 0, 0, 6 )
+shader_param/ending_colour = Plane( 0, 0, 0, 0 )
+shader_param/helmetTextureActive = false
+shader_param/bodyTextureActive = false
+shader_param/weaponTextureActive = false
+shader_param/helmetDarkOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/helmetDarkNew = Color( 33, 53, 23, 0.2 )
+shader_param/helmetMediumOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/helmetMediumNew = Color( 33, 53, 23, 0.2 )
+shader_param/helmetLightOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/helmetLightNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyDarkOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyDarkNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyMediumOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyMediumNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyLightOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyLightNew = Color( 33, 53, 23, 0.2 )
+shader_param/bandOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bandNew = Color( 33, 53, 23, 0.2 )
+shader_param/buckleOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/buckleNew = Color( 33, 53, 23, 0.2 )
+shader_param/weaponOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/weaponNew = Color( 33, 53, 23, 0.2 )
+shader_param/weaponSecondaryOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/weaponSecondaryNew = Color( 33, 53, 23, 0.2 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 210, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 190, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 10, 190, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 20, 190, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 30, 190, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 40, 190, 10, 10 )
+
+[node name="Nametag" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = -74.5
+margin_top = -20.0
+margin_right = 30.5
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 16
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 105.0
+margin_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+material = SubResource( 6 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = SubResource( 5 )
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_top = 7.0
+margin_right = 105.0
+margin_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource( 3 )
+text = "Ace"
+align = 1
+valign = 1
+
+[node name="Effects" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 121.0
+margin_right = 337.0
+margin_bottom = 40.0
+
+[node name="damaging" type="TextureRect" parent="HBoxContainer/Effects"]
+material = SubResource( 6 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = SubResource( 7 )
+stretch_mode = 5
+
+[node name="berserk" type="TextureRect" parent="HBoxContainer/Effects"]
+material = SubResource( 6 )
+margin_left = 44.0
+margin_right = 84.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = SubResource( 8 )
+stretch_mode = 5
+
+[node name="armored" type="TextureRect" parent="HBoxContainer/Effects"]
+material = SubResource( 6 )
+margin_left = 88.0
+margin_right = 128.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = SubResource( 9 )
+stretch_mode = 5
+
+[node name="invincible" type="TextureRect" parent="HBoxContainer/Effects"]
+material = SubResource( 6 )
+margin_left = 132.0
+margin_right = 172.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = SubResource( 10 )
+stretch_mode = 5
+
+[node name="healing" type="TextureRect" parent="HBoxContainer/Effects"]
+material = SubResource( 6 )
+margin_left = 176.0
+margin_right = 216.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = SubResource( 11 )
+stretch_mode = 5

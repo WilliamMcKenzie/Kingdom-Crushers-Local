@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/island_tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/SupportScenes/Housing/House.gd" type="Script" id=2]
+
+[node name="Housing" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Enemies" type="YSort" parent="YSort"]
+
+[node name="Players" type="YSort" parent="YSort"]
+
+[node name="Objects" type="YSort" parent="YSort"]
+
+[node name="DungeonPortals" type="YSort" parent="YSort/Objects"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 3149, 2341 )
+offset = Vector2( 1000, 0 )
+zoom = Vector2( 8, 8 )
+
+[node name="ChunkSensors" type="Node2D" parent="."]

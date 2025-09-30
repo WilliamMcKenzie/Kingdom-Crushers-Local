@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.williamqm.mmorelam",
+  "variantName": "debug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 238,
+      "versionName": "0.79",
+      "outputFile": "android_debug.apk"
+    }
+  ],
+  "elementType": "File"
+}

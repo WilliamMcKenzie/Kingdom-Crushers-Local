@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=1]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Projectiles/Projectile.gd" type="Script" id=2]
+[ext_resource path="res://Assets/projectiles/projectiles_8x8.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.0
+
+[node name="Projectile" type="Sprite"]
+visible = false
+material = ExtResource( 1 )
+texture = ExtResource( 3 )
+hframes = 26
+vframes = 26
+frame = 1
+script = ExtResource( 2 )
+type = "player"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+disabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

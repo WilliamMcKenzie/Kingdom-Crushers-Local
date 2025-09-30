@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Classes/Components/Navigator/Navigator.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="Theme" id=13]
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.501961 )
+Button/fonts/font = SubResource( 10 )
+Button/styles/disabled = SubResource( 12 )
+Button/styles/focus = SubResource( 12 )
+Button/styles/hover = SubResource( 12 )
+Button/styles/normal = SubResource( 12 )
+Button/styles/pressed = SubResource( 12 )
+
+[node name="Navigator" type="VBoxContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -120.0
+margin_bottom = 164.0
+grow_horizontal = 0
+script = ExtResource( 4 )
+
+[node name="Close" type="Button" parent="."]
+margin_right = 120.0
+margin_bottom = 33.0
+theme = SubResource( 13 )
+text = "Close"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_top = 37.0
+margin_right = 120.0
+margin_bottom = 37.0
+
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]

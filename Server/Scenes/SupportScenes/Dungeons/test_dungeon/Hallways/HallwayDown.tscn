@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/SupportScenes/Dungeons/RoomData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/island_tilemap.tres" type="TileSet" id=2]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=3]
+[ext_resource path="res://Assets/objects/objects_8x8.png" type="Texture" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 9, 9, 1, 9, 1, 1, 9, 1 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "objects_8x8.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 30, 50, 20, 10 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 10, 10 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 1
+
+[node name="Boss" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+show_collision = true
+centered_textures = true
+collision_layer = 0
+collision_mask = 23
+format = 1
+tile_data = PoolIntArray( 786437, 8, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 8, 0, 851973, 8, 0, 851974, -1610612734, 0, 851975, -1610612734, 0, 851976, -1610612734, 0, 851977, 8, 0, 917509, 8, 0, 917510, -1610612734, 0, 917511, -1610612734, 0, 917512, -1610612734, 0, 917513, 8, 0, 983045, 8, 0, 983046, -1610612734, 0, 983047, -1610612734, 0, 983048, -1610612734, 0, 983049, 8, 0, 1048581, 8, 0, 1048582, -1610612734, 0, 1048583, -1610612734, 0, 1048584, -1610612734, 0, 1048585, 8, 0, 1114117, 8, 0, 1114118, -1610612734, 0, 1114119, -1610612734, 0, 1114120, -1610612734, 0, 1114121, 8, 0 )
+
+[node name="TileMap" type="TileMap" parent="TileMap"]
+material = ExtResource( 3 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 8, 8 )
+centered_textures = true
+collision_layer = 0
+collision_mask = 23
+format = 1
+tile_data = PoolIntArray( 917510, 0, 0, 1114120, 0, 1 )

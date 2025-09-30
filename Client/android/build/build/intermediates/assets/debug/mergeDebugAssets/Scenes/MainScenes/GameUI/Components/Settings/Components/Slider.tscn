@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Resources/UI/MediumTextOutlined.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=2]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Settings/Components/Setting.gd" type="Script" id=3]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=4]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=5]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 256, 80, 80 )
+margin_left = 24.0
+margin_right = 24.0
+margin_top = 24.0
+margin_bottom = 24.0
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 256, 80, 80 )
+margin_left = 64.0
+margin_right = 64.0
+margin_top = 64.0
+margin_bottom = 64.0
+modulate_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Theme" id=2]
+HSlider/icons/grabber = SubResource( 5 )
+HSlider/icons/grabber_disabled = SubResource( 5 )
+HSlider/icons/grabber_highlight = SubResource( 5 )
+HSlider/icons/tick = SubResource( 5 )
+HSlider/styles/grabber_area = SubResource( 3 )
+HSlider/styles/grabber_area_highlight = SubResource( 3 )
+HSlider/styles/slider = SubResource( 1 )
+
+[node name="0" type="HBoxContainer"]
+material = ExtResource( 2 )
+margin_right = 642.0
+margin_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 40, 80 )
+custom_constants/separation = 16
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 313.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 313.0
+margin_bottom = 41.0
+theme = ExtResource( 1 )
+text = "Max FPS"
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+margin_top = 45.0
+margin_right = 313.0
+margin_bottom = 150.0
+custom_colors/font_color = Color( 0.596078, 0.596078, 0.596078, 1 )
+text = "Lower max fps provides more constistency."
+autowrap = true
+
+[node name="Slider" type="HSlider" parent="."]
+margin_left = 329.0
+margin_top = 35.0
+margin_right = 642.0
+margin_bottom = 115.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource( 2 )
+max_value = 10.0
+value = 4.0
+rounded = true
+tick_count = 5
+ticks_on_borders = true
+
+[connection signal="value_changed" from="Slider" to="." method="_on_Slider_value_changed"]

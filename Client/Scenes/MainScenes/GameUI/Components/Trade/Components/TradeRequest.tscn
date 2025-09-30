@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/UI/ButtonBlue.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=2]
+[ext_resource path="res://Resources/UI/ButtonGUI.tres" type="Theme" id=3]
+[ext_resource path="res://Resources/UI/TitleTextOutlined.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Trade/Components/TradeRequest.gd" type="Script" id=5]
+
+[node name="TradeRequest" type="VBoxContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -301.0
+margin_top = -82.5
+margin_right = 301.0
+margin_bottom = 82.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 16
+script = ExtResource( 5 )
+
+[node name="Name" type="Label" parent="."]
+margin_right = 602.0
+margin_bottom = 49.0
+theme = ExtResource( 4 )
+text = "WilliamQM wants to trade"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 65.0
+margin_right = 602.0
+margin_bottom = 165.0
+rect_min_size = Vector2( 200, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 3 )
+custom_constants/separation = 16
+
+[node name="Accept" type="Button" parent="HBoxContainer"]
+margin_right = 293.0
+margin_bottom = 100.0
+focus_mode = 0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "Accept"
+
+[node name="Reject" type="Button" parent="HBoxContainer"]
+margin_left = 309.0
+margin_right = 602.0
+margin_bottom = 100.0
+focus_mode = 0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Reject"
+
+[connection signal="pressed" from="HBoxContainer/Accept" to="." method="_on_Accept_pressed"]
+[connection signal="pressed" from="HBoxContainer/Reject" to="." method="_on_Reject_pressed"]

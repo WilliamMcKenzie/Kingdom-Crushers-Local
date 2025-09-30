@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Resources/UI/MediumTextOutlined.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=3]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Settings/Components/Setting.gd" type="Script" id=4]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=5]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 6 )
+region_rect = Rect2( 384, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0.101961, 0.101961, 0.101961, 0 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0, 0, 0, 0.392157 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0, 0, 0, 0.392157 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0, 0, 0, 0.666667 )
+
+[sub_resource type="Theme" id=12]
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.501961 )
+Button/fonts/font = SubResource( 10 )
+Button/styles/disabled = SubResource( 7 )
+Button/styles/focus = SubResource( 7 )
+Button/styles/hover = SubResource( 8 )
+Button/styles/normal = SubResource( 11 )
+Button/styles/pressed = SubResource( 9 )
+
+[node name="0" type="HBoxContainer"]
+material = ExtResource( 3 )
+margin_right = 571.0
+margin_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 40, 80 )
+custom_constants/separation = 16
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 204.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 204.0
+margin_bottom = 41.0
+theme = ExtResource( 1 )
+text = "Ability Key"
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+margin_top = 45.0
+margin_right = 204.0
+margin_bottom = 150.0
+custom_colors/font_color = Color( 0.596078, 0.596078, 0.596078, 1 )
+text = "The key to use your ability."
+autowrap = true
+
+[node name="Trigger" type="Button" parent="."]
+margin_left = 220.0
+margin_right = 571.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+theme = SubResource( 12 )
+text = "Listening for key..."
+
+[connection signal="pressed" from="Trigger" to="." method="_on_Trigger_pressed"]

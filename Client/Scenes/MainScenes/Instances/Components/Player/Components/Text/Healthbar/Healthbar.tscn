@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Resources/UI/TextNormal.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/Text/Healthbar/Healthbar.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=110]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="Theme" id=111]
+PanelContainer/styles/panel = SubResource( 110 )
+
+[sub_resource type="StyleBoxFlat" id=108]
+bg_color = Color( 0, 0.764706, 0.0431373, 1 )
+shadow_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=109]
+bg_color = Color( 1, 1, 1, 0 )
+
+[node name="Healthbar" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 2 )
+
+[node name="Health" type="PanelContainer" parent="."]
+self_modulate = Color( 0, 0, 0, 0.705882 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -8.0
+margin_right = 82.0
+margin_bottom = 8.0
+size_flags_vertical = 4
+theme = SubResource( 111 )
+
+[node name="Healthbar" type="ProgressBar" parent="Health"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 158.0
+margin_bottom = 12.0
+grow_vertical = 2
+rect_min_size = Vector2( 150, 8 )
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 108 )
+custom_styles/bg = SubResource( 109 )
+value = 100.0
+percent_visible = false
+
+[node name="HP" type="Label" parent="Health"]
+visible = false
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 104.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource( 1 )
+text = "EXP"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="Health"]
+visible = false
+margin_left = 54.0
+margin_top = 4.0
+margin_right = 154.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 12
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 0.54902 )
+text = "100"
+align = 1
+valign = 1

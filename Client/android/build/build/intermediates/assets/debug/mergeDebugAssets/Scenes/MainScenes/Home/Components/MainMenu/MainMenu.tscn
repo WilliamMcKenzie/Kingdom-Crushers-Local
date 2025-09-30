@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=2]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=4]
+[ext_resource path="res://Assets/npcs/enemies_32x32.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/MainMenu/MainMenu.gd" type="Script" id=6]
+[ext_resource path="res://Resources/UI/ButtonPurple.tres" type="Theme" id=10]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=11]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 64.0
+margin_right = 64.0
+margin_top = 64.0
+margin_bottom = 64.0
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 114, 38, 38 )
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource( 6 )
+
+[node name="NavbarContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+
+[node name="Navbar" type="HBoxContainer" parent="NavbarContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1904.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 0, 100 )
+custom_constants/separation = 8
+
+[node name="Logout" type="Button" parent="NavbarContainer/Navbar"]
+margin_right = 224.0
+margin_bottom = 100.0
+focus_mode = 0
+theme = ExtResource( 10 )
+text = "Logout"
+
+[node name="Divider" type="Control" parent="NavbarContainer/Navbar"]
+margin_left = 232.0
+margin_right = 1461.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Discord" type="Button" parent="NavbarContainer/Navbar"]
+margin_left = 1469.0
+margin_right = 1701.0
+margin_bottom = 100.0
+focus_mode = 0
+theme = ExtResource( 10 )
+text = "Discord"
+
+[node name="Wiki" type="Button" parent="NavbarContainer/Navbar"]
+margin_left = 1709.0
+margin_right = 1888.0
+margin_bottom = 100.0
+focus_mode = 0
+theme = ExtResource( 10 )
+text = "Wiki"
+
+[node name="Panel" type="PanelContainer" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -307.0
+margin_top = -404.5
+margin_right = 307.0
+margin_bottom = 404.5
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 550.0
+margin_bottom = 745.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="Monster" type="TextureRect" parent="Panel/VBoxContainer"]
+material = ExtResource( 2 )
+margin_right = 486.0
+margin_bottom = 342.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 2 )
+stretch_mode = 6
+
+[node name="Play" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 358.0
+margin_right = 486.0
+margin_bottom = 455.0
+focus_mode = 0
+theme = ExtResource( 11 )
+text = "Play"
+
+[node name="Leaderboard" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 471.0
+margin_right = 486.0
+margin_bottom = 568.0
+focus_mode = 0
+theme = ExtResource( 10 )
+text = "Leaderboard"
+
+[node name="Graveyard" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 584.0
+margin_right = 486.0
+margin_bottom = 681.0
+focus_mode = 0
+theme = ExtResource( 10 )
+text = "Graveyard"
+
+[connection signal="pressed" from="NavbarContainer/Navbar/Logout" to="." method="_on_Logout_pressed"]
+[connection signal="pressed" from="NavbarContainer/Navbar/Discord" to="." method="_on_Discord_pressed"]
+[connection signal="pressed" from="NavbarContainer/Navbar/Wiki" to="." method="_on_Wiki_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Graveyard" to="." method="_on_Graveyard_pressed"]

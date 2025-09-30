@@ -1,0 +1,228 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/Home/Components/CharacterSelection/CharacterSelection.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=2]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=4]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=5]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=6]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/CharacterSelection/Components/Character.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/UI/ButtonPurple.tres" type="Theme" id=10]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=11]
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 220, 10, 10 )
+
+[sub_resource type="DynamicFont" id=41]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=69]
+texture = ExtResource( 4 )
+region_rect = Rect2( 640, 128, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0.403922, 0.403922, 0.403922, 1 )
+
+[sub_resource type="StyleBoxTexture" id=51]
+texture = ExtResource( 4 )
+region_rect = Rect2( 768, 128, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id=58]
+texture = ExtResource( 4 )
+region_rect = Rect2( 640, 128, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id=59]
+texture = ExtResource( 4 )
+region_rect = Rect2( 640, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id=67]
+texture = ExtResource( 4 )
+region_rect = Rect2( 640, 128, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0.686275, 0.686275, 0.686275, 1 )
+
+[sub_resource type="Theme" id=50]
+Button/fonts/font = SubResource( 41 )
+Button/styles/disabled = SubResource( 69 )
+Button/styles/focus = SubResource( 51 )
+Button/styles/hover = SubResource( 58 )
+Button/styles/normal = SubResource( 59 )
+Button/styles/pressed = SubResource( 67 )
+
+[sub_resource type="StyleBoxTexture" id=68]
+texture = ExtResource( 4 )
+region_rect = Rect2( 768, 128, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0.403922, 0.403922, 0.403922, 1 )
+
+[sub_resource type="StyleBoxTexture" id=60]
+texture = ExtResource( 4 )
+region_rect = Rect2( 768, 128, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id=55]
+texture = ExtResource( 4 )
+region_rect = Rect2( 768, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id=53]
+texture = ExtResource( 4 )
+region_rect = Rect2( 768, 128, 128, 128 )
+margin_left = 32.0
+margin_right = 64.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0.686275, 0.686275, 0.686275, 1 )
+
+[sub_resource type="Theme" id=56]
+Button/fonts/font = SubResource( 41 )
+Button/styles/disabled = SubResource( 68 )
+Button/styles/focus = SubResource( 51 )
+Button/styles/hover = SubResource( 60 )
+Button/styles/normal = SubResource( 55 )
+Button/styles/pressed = SubResource( 53 )
+
+[node name="CharacterSelection" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="NavbarContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+
+[node name="Navbar" type="HBoxContainer" parent="NavbarContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1904.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 0, 100 )
+custom_constants/separation = 8
+
+[node name="Back" type="Button" parent="NavbarContainer/Navbar"]
+margin_right = 190.0
+margin_bottom = 100.0
+focus_mode = 0
+theme = ExtResource( 10 )
+text = "Back"
+
+[node name="Divider" type="Control" parent="NavbarContainer/Navbar"]
+margin_left = 198.0
+margin_right = 1374.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Gold" type="Button" parent="NavbarContainer/Navbar"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 1382.0
+margin_right = 1632.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 0 )
+align = 2
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavbarContainer/Navbar/Gold"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -28.0
+alignment = 2
+
+[node name="Label" type="Label" parent="NavbarContainer/Navbar/Gold/HBoxContainer"]
+margin_left = 69.0
+margin_top = 33.0
+margin_right = 138.0
+margin_bottom = 66.0
+theme = ExtResource( 6 )
+text = "1995"
+
+[node name="GoldIcon" type="TextureButton" parent="NavbarContainer/Navbar/Gold/HBoxContainer"]
+material = ExtResource( 2 )
+margin_left = 142.0
+margin_right = 222.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 80, 0 )
+mouse_filter = 2
+texture_normal = SubResource( 66 )
+expand = true
+stretch_mode = 5
+
+[node name="BuyGold" type="Button" parent="NavbarContainer/Navbar"]
+margin_left = 1640.0
+margin_right = 1888.0
+margin_bottom = 100.0
+theme = ExtResource( 11 )
+text = "Buy gold"
+align = 2
+expand_icon = true
+
+[node name="Arrows" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -50.0
+margin_right = 500.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 800, 100 )
+mouse_filter = 2
+custom_constants/separation = 700
+alignment = 1
+
+[node name="Left" type="Button" parent="Arrows"]
+margin_left = 50.0
+margin_right = 150.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 0
+theme = SubResource( 50 )
+
+[node name="Right" type="Button" parent="Arrows"]
+margin_left = 850.0
+margin_right = 950.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 0
+theme = SubResource( 56 )
+disabled = true
+
+[node name="CharacterContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="CharacterButton" parent="CharacterContainer" instance=ExtResource( 8 )]
+script = null
+
+[connection signal="pressed" from="NavbarContainer/Navbar/Back" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="NavbarContainer/Navbar/BuyGold" to="." method="_on_Gold_pressed"]
+[connection signal="pressed" from="Arrows/Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="Arrows/Right" to="." method="_on_Right_pressed"]

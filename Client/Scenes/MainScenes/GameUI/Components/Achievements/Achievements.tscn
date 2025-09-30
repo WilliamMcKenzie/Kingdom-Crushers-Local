@@ -1,0 +1,177 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Achievements/Achievements.gd" type="Script" id=1]
+[ext_resource path="res://Resources/UI/TitleTextOutlined.tres" type="Theme" id=2]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=3]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=4]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Leaderboard/ScrollContainer.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Achievements/Components/Achievement.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Gradient" id=117]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=115]
+gradient = SubResource( 117 )
+fill_from = Vector2( 1, 0.5 )
+fill_to = Vector2( 1, 0.505882 )
+
+[sub_resource type="Gradient" id=118]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=116]
+gradient = SubResource( 118 )
+fill_from = Vector2( 0, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 4 )
+region = Rect2( 20, 220, 10, 10 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="Theme" id=13]
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.501961 )
+Button/fonts/font = SubResource( 10 )
+Button/styles/disabled = SubResource( 12 )
+Button/styles/focus = SubResource( 12 )
+Button/styles/hover = SubResource( 12 )
+Button/styles/normal = SubResource( 12 )
+Button/styles/pressed = SubResource( 12 )
+
+[sub_resource type="StyleBoxEmpty" id=119]
+
+[sub_resource type="StyleBoxEmpty" id=120]
+
+[sub_resource type="StyleBoxEmpty" id=121]
+
+[sub_resource type="StyleBoxEmpty" id=122]
+
+[sub_resource type="StyleBoxEmpty" id=123]
+
+[sub_resource type="Theme" id=28]
+VScrollBar/styles/grabber = SubResource( 119 )
+VScrollBar/styles/grabber_highlight = SubResource( 120 )
+VScrollBar/styles/grabber_pressed = SubResource( 121 )
+VScrollBar/styles/scroll = SubResource( 122 )
+VScrollBar/styles/scroll_focus = SubResource( 123 )
+
+[node name="Achievements" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="DarkScreen" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.611765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 115 )
+expand = true
+
+[node name="Vignette" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.631373 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 116 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+custom_constants/separation = 64
+
+[node name="Categories" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 434.0
+margin_bottom = 1080.0
+custom_constants/separation = 16
+
+[node name="Title" type="HBoxContainer" parent="HBoxContainer/Categories"]
+margin_right = 434.0
+margin_bottom = 80.0
+custom_constants/separation = 16
+
+[node name="Label" type="Label" parent="HBoxContainer/Categories/Title"]
+margin_top = 15.0
+margin_right = 338.0
+margin_bottom = 64.0
+theme = ExtResource( 2 )
+text = "Achievements"
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Categories/Title"]
+material = ExtResource( 3 )
+margin_left = 354.0
+margin_right = 434.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = SubResource( 27 )
+expand = true
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 498.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+
+[node name="Close" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_left = 1334.0
+margin_right = 1422.0
+margin_bottom = 33.0
+size_flags_horizontal = 8
+theme = SubResource( 13 )
+text = "Close"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 1422.0
+margin_bottom = 1080.0
+rect_clip_content = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 28 )
+scroll_horizontal_enabled = false
+script = ExtResource( 7 )
+
+[node name="Achievements" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/ScrollContainer"]
+margin_right = 1422.0
+margin_bottom = 1031.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 32
+
+[node name="0" parent="HBoxContainer/VBoxContainer/ScrollContainer/Achievements" instance=ExtResource( 8 )]
+margin_right = 1422.0
+
+[node name="1" parent="HBoxContainer/VBoxContainer/ScrollContainer/Achievements" instance=ExtResource( 8 )]
+margin_top = 112.0
+margin_right = 1422.0
+margin_bottom = 192.0
+
+[node name="2" parent="HBoxContainer/VBoxContainer/ScrollContainer/Achievements" instance=ExtResource( 8 )]
+margin_top = 224.0
+margin_right = 1422.0
+margin_bottom = 304.0
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Close" to="." method="_on_Close_pressed"]

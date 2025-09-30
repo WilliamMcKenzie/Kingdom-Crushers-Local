@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=1]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=2]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=3]
+[ext_resource path="res://Resources/UI/MediumTextOutlined.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/ColorGear.gd" type="Script" id=5]
+[ext_resource path="res://Assets/characters/characters_8x8.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Classes/Components/Preview/CharacterPreview.gd" type="Script" id=7]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 10, 210, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 2.22222e+07, 2222, 10, 10 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0.843137, 0.466667, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0, 0, 0.313726 )
+
+[node name="0" type="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 244.0
+rect_min_size = Vector2( 180, 0 )
+custom_constants/separation = 16
+alignment = 1
+script = ExtResource( 7 )
+
+[node name="ClassName" type="HBoxContainer" parent="."]
+margin_right = 300.0
+margin_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ClassName"]
+visible = false
+material = ExtResource( 1 )
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Class" type="Label" parent="ClassName"]
+margin_left = 121.0
+margin_right = 178.0
+margin_bottom = 41.0
+size_flags_vertical = 8
+theme = ExtResource( 4 )
+text = "???"
+align = 1
+
+[node name="CharacterContainer" type="TextureRect" parent="."]
+material = ExtResource( 1 )
+margin_left = 70.0
+margin_top = 57.0
+margin_right = 230.0
+margin_bottom = 217.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="Character" type="Sprite" parent="CharacterContainer"]
+modulate = Color( 0, 0, 0, 1 )
+material = ExtResource( 1 )
+position = Vector2( 85.9999, 91 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 6 )
+hframes = 4
+vframes = 4
+region_enabled = true
+region_rect = Rect2( 0, 0, 80, 40 )
+script = ExtResource( 5 )
+
+[node name="Bar" type="ProgressBar" parent="."]
+margin_top = 233.0
+margin_right = 300.0
+margin_bottom = 243.0
+rect_min_size = Vector2( 0, 10 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 10 )
+max_value = 600.0
+value = 500.0
+percent_visible = false
+
+[node name="Hint" type="Label" parent="."]
+margin_top = 259.0
+margin_right = 300.0
+margin_bottom = 364.0
+rect_min_size = Vector2( 300, 30 )
+theme = ExtResource( 3 )
+text = "Discover by becoming one with magic."
+align = 1
+autowrap = true

@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Resources/UI/TextNormal.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/TitleText.tres" type="Theme" id=2]
+[ext_resource path="res://Resources/UI/Panel.tres" type="Theme" id=3]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=4]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=5]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=6]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Shop/Components/Offer.gd" type="Script" id=7]
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 220.5, 10, 10 )
+
+[sub_resource type="StyleBoxEmpty" id=32]
+
+[node name="Offer" type="PanelContainer"]
+margin_right = 600.0
+margin_bottom = 748.0
+mouse_filter = 2
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+script = ExtResource( 7 )
+
+[node name="Container" type="VBoxContainer" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 536.0
+margin_bottom = 684.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+margin_right = 472.0
+margin_bottom = 60.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Title" type="Label" parent="Container/HBoxContainer"]
+margin_left = 89.0
+margin_top = 5.0
+margin_right = 318.0
+margin_bottom = 54.0
+theme = ExtResource( 2 )
+text = "1000 Gold"
+
+[node name="TextureRect" type="TextureRect" parent="Container/HBoxContainer"]
+material = ExtResource( 4 )
+margin_left = 322.0
+margin_right = 382.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = SubResource( 33 )
+expand = true
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="Container"]
+margin_top = 92.0
+margin_right = 472.0
+margin_bottom = 491.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 32 )
+text = "1000 units of in game gold currency."
+autowrap = true
+
+[node name="Buy" type="Button" parent="Container"]
+margin_top = 523.0
+margin_right = 472.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 50, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 6 )
+text = "$10"

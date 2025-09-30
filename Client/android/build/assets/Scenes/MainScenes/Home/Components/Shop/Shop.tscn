@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/UI/TextNormal.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=2]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Shop/Shop.gd" type="Script" id=5]
+[ext_resource path="res://Resources/UI/TitleTextOutlined.tres" type="Theme" id=6]
+[ext_resource path="res://Resources/UI/ButtonPurple.tres" type="Theme" id=8]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=9]
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 220, 10, 10 )
+
+[node name="Shop" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="NavbarContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 258.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+
+[node name="Navbar" type="VBoxContainer" parent="NavbarContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1904.0
+margin_bottom = 258.0
+
+[node name="Row1" type="HBoxContainer" parent="NavbarContainer/Navbar"]
+margin_right = 1888.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+custom_constants/separation = 8
+
+[node name="Back" type="Button" parent="NavbarContainer/Navbar/Row1"]
+margin_right = 190.0
+margin_bottom = 100.0
+focus_mode = 0
+theme = ExtResource( 8 )
+text = "Back"
+
+[node name="Divider" type="Control" parent="NavbarContainer/Navbar/Row1"]
+margin_left = 198.0
+margin_right = 1630.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Gold" type="Button" parent="NavbarContainer/Navbar/Row1"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 1638.0
+margin_right = 1888.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 0 )
+theme = ExtResource( 9 )
+align = 2
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavbarContainer/Navbar/Row1/Gold"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -28.0
+alignment = 2
+
+[node name="Label" type="Label" parent="NavbarContainer/Navbar/Row1/Gold/HBoxContainer"]
+margin_left = 118.0
+margin_top = 33.0
+margin_right = 138.0
+margin_bottom = 66.0
+theme = ExtResource( 1 )
+text = "0"
+
+[node name="GoldIcon" type="TextureButton" parent="NavbarContainer/Navbar/Row1/Gold/HBoxContainer"]
+material = ExtResource( 2 )
+margin_left = 142.0
+margin_right = 222.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 80, 0 )
+mouse_filter = 2
+texture_normal = SubResource( 30 )
+expand = true
+stretch_mode = 5
+
+[node name="Row2" type="HBoxContainer" parent="NavbarContainer/Navbar"]
+margin_top = 104.0
+margin_right = 1888.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 3
+custom_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="NavbarContainer/Navbar/Row2"]
+margin_left = 884.0
+margin_top = 89.0
+margin_right = 1004.0
+margin_bottom = 138.0
+grow_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource( 6 )
+text = "Shop"
+align = 2
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 370.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 8
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="Box" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 32.0
+margin_top = 8.0
+margin_right = 1888.0
+margin_bottom = 678.0
+mouse_filter = 2
+size_flags_vertical = 3
+custom_constants/separation = 32
+
+[connection signal="pressed" from="NavbarContainer/Navbar/Row1/Back" to="." method="_on_Back_pressed"]

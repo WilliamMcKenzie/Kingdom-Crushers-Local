@@ -1,0 +1,162 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Resources/Outline.gdshader" type="Shader" id=2]
+[ext_resource path="res://Assets/npcs/enemies_16x16.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Game/Components/Quest/Quest.gd" type="Script" id=4]
+[ext_resource path="res://Assets/objects/objects_16x16.png" type="Texture" id=5]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 384, 136, 136 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=51]
+texture = ExtResource( 7 )
+region_rect = Rect2( 896, 256, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0, 0, 0, 0.294118 )
+
+[sub_resource type="StyleBoxTexture" id=54]
+texture = ExtResource( 7 )
+region_rect = Rect2( 512, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 1, 1, 1, 0.392157 )
+
+[sub_resource type="StyleBoxTexture" id=58]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0, 0, 0, 0.294118 )
+
+[sub_resource type="Theme" id=59]
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.501961 )
+Button/fonts/font = SubResource( 10 )
+Button/styles/disabled = SubResource( 51 )
+Button/styles/focus = SubResource( 51 )
+Button/styles/hover = SubResource( 54 )
+Button/styles/normal = SubResource( 58 )
+Button/styles/pressed = SubResource( 51 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 2 )
+shader_param/max_line_width = 1.0
+shader_param/min_line_width = 1.0
+shader_param/freq = 0.0
+shader_param/block_size = 22220.2
+shader_param/starting_colour = Plane( 0, 0, 0, 3 )
+shader_param/ending_colour = Plane( 0, 0, 0, 0 )
+shader_param/helmetTextureActive = false
+shader_param/bodyTextureActive = false
+shader_param/weaponTextureActive = false
+shader_param/helmetDarkOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/helmetDarkNew = Color( 33, 53, 23, 0.2 )
+shader_param/helmetMediumOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/helmetMediumNew = Color( 33, 53, 23, 0.2 )
+shader_param/helmetLightOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/helmetLightNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyDarkOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyDarkNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyMediumOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyMediumNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyLightOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyLightNew = Color( 33, 53, 23, 0.2 )
+shader_param/bandOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bandNew = Color( 33, 53, 23, 0.2 )
+shader_param/buckleOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/buckleNew = Color( 33, 53, 23, 0.2 )
+shader_param/weaponOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/weaponNew = Color( 33, 53, 23, 0.2 )
+shader_param/weaponSecondaryOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/weaponSecondaryNew = Color( 33, 53, 23, 0.2 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 18, 18 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 18, 18 )
+
+[node name="Quest" type="PanelContainer"]
+margin_right = 160.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 80, 80 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 4 )
+
+[node name="Compass" type="Node2D" parent="."]
+visible = false
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_right = 160.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 80, 80 )
+mouse_filter = 2
+texture = SubResource( 57 )
+expand = true
+stretch_mode = 6
+
+[node name="w" type="Button" parent="."]
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 140.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 120, 120 )
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource( 59 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 160.0
+margin_bottom = 160.0
+mouse_filter = 2
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+material = SubResource( 6 )
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 120.0
+margin_bottom = 120.0
+mouse_filter = 2
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="ShipContainer" type="TextureRect" parent="MarginContainer"]
+visible = false
+material = SubResource( 6 )
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 120.0
+margin_bottom = 120.0
+mouse_filter = 2
+texture = SubResource( 7 )
+expand = true
+stretch_mode = 6

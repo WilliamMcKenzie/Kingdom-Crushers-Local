@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=1]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Inventory/Components/ItemSlot/DisplaySlot/DisplaySlot.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 140, 220, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 40, 10, 10 )
+
+[node name="0" type="TextureButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 0.564706, 0.564706, 0.564706, 0.866667 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="."]
+material = ExtResource( 1 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 6 )
+expand = true
+stretch_mode = 5

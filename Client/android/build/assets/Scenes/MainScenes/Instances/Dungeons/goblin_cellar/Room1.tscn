@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Tilemaps/test_dungeon_tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/MainScenes/Instances/Dungeons/RoomData.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=3]
+[ext_resource path="res://Assets/objects/objects_8x8.png" type="Texture" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 9, 9, 1, 9, 1, 1, 9, 1 )
+
+[sub_resource type="TileSet" id=4]
+0/name = "objects_8x8.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 30, 50, 20, 10 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 10, 10 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 5 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 1
+
+[node name="Boss" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+centered_textures = true
+collision_layer = 0
+collision_mask = 23
+format = 1
+tile_data = PoolIntArray( 131075, 8, 0, 131076, 8, 0, 131077, 8, 0, 131078, 8, 0, 131079, 8, 0, 131080, 8, 0, 131081, 8, 0, 131082, 8, 0, 131083, 8, 0, 196610, 8, 0, 196611, -1610612734, 0, 196612, -1610612734, 0, 196613, -1610612734, 0, 196614, -1610612734, 0, 196615, -1610612734, 0, 196616, -1610612734, 0, 196617, -1610612734, 0, 196618, -1610612734, 0, 196619, -1610612734, 0, 196620, 8, 0, 262146, 8, 0, 262147, -1610612734, 0, 262148, -1610612734, 0, 262149, -1610612734, 0, 262150, -1610612734, 0, 262151, 9, 0, 262152, -1610612734, 0, 262153, -1610612734, 0, 262154, -1610612734, 0, 262155, -1610612734, 0, 262156, 8, 0, 327682, 8, 0, 327683, -1610612734, 0, 327684, -1610612734, 0, 327685, -1610612734, 0, 327686, -1610612734, 0, 327687, -1610612734, 0, 327688, -1610612734, 0, 327689, -1610612734, 0, 327690, -1610612734, 0, 327691, -1610612734, 0, 327692, 8, 0, 393218, 8, 0, 393219, -1610612734, 0, 393220, -1610612734, 0, 393221, -1610612734, 0, 393222, -1610612734, 0, 393223, -1610612734, 0, 393224, -1610612734, 0, 393225, -1610612734, 0, 393226, -1610612734, 0, 393227, -1610612734, 0, 393228, 8, 0, 458754, 8, 0, 458755, -1610612734, 0, 458756, -1610612734, 0, 458757, 9, 0, 458758, -1610612734, 0, 458759, -1610612734, 0, 458760, -1610612734, 0, 458761, -1610612734, 0, 458762, -1610612734, 0, 458763, -1610612734, 0, 458764, 8, 0, 524290, 8, 0, 524291, -1610612734, 0, 524292, -1610612734, 0, 524293, -1610612734, 0, 524294, -1610612734, 0, 524295, -1610612734, 0, 524296, -1610612734, 0, 524297, -1610612734, 0, 524298, 9, 0, 524299, -1610612734, 0, 524300, 8, 0, 589826, 8, 0, 589827, -1610612734, 0, 589828, -1610612734, 0, 589829, -1610612734, 0, 589830, -1610612734, 0, 589831, -1610612734, 0, 589832, -1610612734, 0, 589833, -1610612734, 0, 589834, -1610612734, 0, 589835, -1610612734, 0, 589836, 8, 0, 655362, 8, 0, 655363, -1610612734, 0, 655364, -1610612734, 0, 655365, -1610612734, 0, 655366, -1610612734, 0, 655367, -1610612734, 0, 655368, -1610612734, 0, 655369, -1610612734, 0, 655370, -1610612734, 0, 655371, -1610612734, 0, 655372, 8, 0, 720898, 8, 0, 720899, -1610612734, 0, 720900, -1610612734, 0, 720901, -1610612734, 0, 720902, -1610612734, 0, 720903, -1610612734, 0, 720904, -1610612734, 0, 720905, -1610612734, 0, 720906, -1610612734, 0, 720907, -1610612734, 0, 720908, 8, 0, 786435, 8, 0, 786436, 8, 0, 786437, 8, 0, 786438, 8, 0, 786439, 8, 0, 786440, 8, 0, 786441, 8, 0, 786442, 8, 0, 786443, 8, 0 )
+
+[node name="TileMap" type="TileMap" parent="TileMap"]
+material = ExtResource( 3 )
+tile_set = SubResource( 4 )
+cell_size = Vector2( 8, 8 )
+centered_textures = true
+collision_layer = 0
+collision_mask = 23
+format = 1
+tile_data = PoolIntArray( 196611, 0, 0, 196612, 0, 0, 196618, 0, 0, 196619, 0, 0, 262147, 0, 1 )

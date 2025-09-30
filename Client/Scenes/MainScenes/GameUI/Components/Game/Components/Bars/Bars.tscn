@@ -1,0 +1,254 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Resources/UI/TextNormal.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Game/Components/Bars/Bars.gd" type="Script" id=3]
+[ext_resource path="res://Resources/UI/TextSmall.tres" type="Theme" id=4]
+
+[sub_resource type="Animation" id=107]
+resource_name = "Exp"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer/Exp/ExpBar:custom_styles/fg:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=109]
+resource_name = "Level"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer/Exp/ExpBar:custom_styles/bg:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer/Exp/ExpBar:custom_styles/fg:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=108]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer/Exp/ExpBar:custom_styles/fg:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer/Exp/ExpBar:custom_styles/bg:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 4
+outline_color = Color( 0, 0, 0, 0.705882 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+Label/fonts/font = SubResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=113]
+
+[sub_resource type="StyleBoxFlat" id=114]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="Theme" id=104]
+Panel/styles/panel = SubResource( 113 )
+PanelContainer/styles/panel = SubResource( 114 )
+
+[sub_resource type="ShaderMaterial" id=14]
+
+[sub_resource type="StyleBoxFlat" id=100]
+bg_color = Color( 0.701961, 1, 0.352941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=106]
+bg_color = Color( 1, 1, 1, 0 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id=112]
+bg_color = Color( 1, 1, 1, 1 )
+
+[node name="Bars" type="VBoxContainer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -98.0
+margin_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 600, 0 )
+custom_constants/separation = 8
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Exp = SubResource( 107 )
+anims/Level = SubResource( 109 )
+anims/RESET = SubResource( 108 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 32.0
+margin_right = 600.0
+margin_bottom = 65.0
+size_flags_vertical = 8
+custom_constants/separation = 16
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_right = 76.0
+margin_bottom = 33.0
+size_flags_vertical = 8
+theme = SubResource( 2 )
+text = "Lv 10"
+
+[node name="Health" type="PanelContainer" parent="HBoxContainer"]
+visible = false
+self_modulate = Color( 0, 0, 0, 0.588235 )
+margin_left = 92.0
+margin_top = 7.0
+margin_right = 500.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource( 104 )
+
+[node name="HealthBar" type="ProgressBar" parent="HBoxContainer/Health"]
+material = SubResource( 14 )
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 404.0
+margin_bottom = 14.0
+grow_vertical = 2
+rect_min_size = Vector2( 400, 10 )
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 100 )
+custom_styles/bg = SubResource( 106 )
+max_value = 2500.0
+value = 2000.0
+percent_visible = false
+
+[node name="HP" type="Label" parent="HBoxContainer/Health"]
+visible = false
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 104.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource( 1 )
+text = "EXP"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/Health"]
+visible = false
+margin_left = 496.0
+margin_top = 4.0
+margin_right = 596.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 100, 25 )
+size_flags_horizontal = 12
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 0.54902 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="Exp" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color( 0, 0, 0, 0.588235 )
+margin_left = 92.0
+margin_top = 7.0
+margin_right = 600.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource( 104 )
+
+[node name="ExpBar" type="ProgressBar" parent="HBoxContainer/Exp"]
+material = SubResource( 14 )
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 504.0
+margin_bottom = 14.0
+grow_vertical = 2
+rect_min_size = Vector2( 400, 10 )
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 112 )
+custom_styles/bg = SubResource( 106 )
+max_value = 2500.0
+value = 250.0
+percent_visible = false
+
+[node name="HP" type="Label" parent="HBoxContainer/Exp"]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 108.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource( 1 )
+text = "EXP"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/Exp"]
+visible = false
+margin_left = 208.0
+margin_top = 8.0
+margin_right = 308.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 12
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 0.54902 )
+text = "100"
+align = 1
+valign = 1

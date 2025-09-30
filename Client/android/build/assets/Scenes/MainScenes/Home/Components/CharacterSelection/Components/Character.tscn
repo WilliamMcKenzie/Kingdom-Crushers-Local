@@ -1,0 +1,211 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Resources/UI/TitleText.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Inventory/Components/ItemSlot/DisplaySlot/DisplaySlot.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/ColorGear.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=5]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=6]
+[ext_resource path="res://Assets/characters/characters_8x8.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/CharacterSelection/Components/Character.gd" type="Script" id=8]
+[ext_resource path="res://Resources/UI/Panel.tres" type="Theme" id=9]
+
+[sub_resource type="AtlasTexture" id=10]
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 150, 220, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 60, 40, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=22]
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 6 )
+region = Rect2( 160, 220, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 6 )
+region = Rect2( 60, 40, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=25]
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 6 )
+region = Rect2( 170, 220, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 6 )
+region = Rect2( 60, 40, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 6 )
+region = Rect2( 2.22222e+07, 2222, 10, 10 )
+
+[node name="CharacterButton" type="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -300.0
+margin_right = 300.0
+margin_bottom = 300.0
+theme = ExtResource( 9 )
+script = ExtResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 536.0
+margin_bottom = 536.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 472.0
+margin_bottom = 83.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Nomad - Lv. 1"
+align = 1
+
+[node name="Items" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 99.0
+margin_right = 472.0
+margin_bottom = 183.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="weapon" type="TextureButton" parent="VBoxContainer/Items"]
+margin_left = 112.0
+margin_right = 192.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_vertical = 3
+expand = true
+script = ExtResource( 3 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/Items/weapon"]
+scale = Vector2( 2, 2 )
+normal = SubResource( 10 )
+
+[node name="Background" type="TextureRect" parent="VBoxContainer/Items/weapon"]
+modulate = Color( 0, 0, 0, 0.313726 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Items/weapon"]
+visible = false
+material = ExtResource( 5 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="helmet" type="TextureButton" parent="VBoxContainer/Items"]
+margin_left = 196.0
+margin_right = 276.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_vertical = 3
+expand = true
+script = ExtResource( 3 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/Items/helmet"]
+scale = Vector2( 2, 2 )
+normal = SubResource( 22 )
+
+[node name="Background" type="TextureRect" parent="VBoxContainer/Items/helmet"]
+modulate = Color( 0, 0, 0, 0.313726 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 23 )
+expand = true
+stretch_mode = 6
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Items/helmet"]
+visible = false
+material = ExtResource( 5 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 24 )
+expand = true
+stretch_mode = 5
+
+[node name="armor" type="TextureButton" parent="VBoxContainer/Items"]
+margin_left = 280.0
+margin_right = 360.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_vertical = 3
+expand = true
+script = ExtResource( 3 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/Items/armor"]
+scale = Vector2( 2, 2 )
+normal = SubResource( 25 )
+
+[node name="Background" type="TextureRect" parent="VBoxContainer/Items/armor"]
+modulate = Color( 0, 0, 0, 0.313726 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 26 )
+expand = true
+stretch_mode = 6
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Items/armor"]
+visible = false
+material = ExtResource( 5 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 27 )
+expand = true
+stretch_mode = 5
+
+[node name="CharacterContainer" type="TextureRect" parent="VBoxContainer"]
+material = ExtResource( 5 )
+margin_left = 156.0
+margin_top = 199.0
+margin_right = 316.0
+margin_bottom = 359.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 21 )
+expand = true
+stretch_mode = 5
+
+[node name="Character" type="Sprite" parent="VBoxContainer/CharacterContainer"]
+material = ExtResource( 5 )
+position = Vector2( 85.9999, 91 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 7 )
+hframes = 4
+vframes = 4
+region_enabled = true
+region_rect = Rect2( 0, 0, 80, 40 )
+script = ExtResource( 4 )
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+margin_top = 375.0
+margin_right = 472.0
+margin_bottom = 472.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "Play"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]

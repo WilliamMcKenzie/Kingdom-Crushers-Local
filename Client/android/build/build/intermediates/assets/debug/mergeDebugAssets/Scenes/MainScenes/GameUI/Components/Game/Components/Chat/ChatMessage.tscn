@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/Outline.gdshader" type="Shader" id=1]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Game/Components/Chat/ChatMessage.gd" type="Script" id=3]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=4]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 1 )
+shader_param/max_line_width = 2.0
+shader_param/min_line_width = -0.983
+shader_param/freq = 0.0
+shader_param/block_size = 22220.3
+shader_param/starting_colour = Plane( 0, 0, 0, 2 )
+shader_param/ending_colour = Plane( 0, 0, 0, 0 )
+shader_param/helmetTextureActive = false
+shader_param/bodyTextureActive = false
+shader_param/weaponTextureActive = false
+shader_param/helmetDarkOrigin = Color( 1, 0, 1, 1 )
+shader_param/helmetDarkNew = Color( 33, 53, 23, 0.2 )
+shader_param/helmetMediumOrigin = Color( 0, 0, 1, 1 )
+shader_param/helmetMediumNew = Color( 33, 53, 23, 0.2 )
+shader_param/helmetLightOrigin = Color( 0, 1, 1, 1 )
+shader_param/helmetLightNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyDarkOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyDarkNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyMediumOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyMediumNew = Color( 33, 53, 23, 0.2 )
+shader_param/bodyLightOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bodyLightNew = Color( 33, 53, 23, 0.2 )
+shader_param/bandOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/bandNew = Color( 33, 53, 23, 0.2 )
+shader_param/buckleOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/buckleNew = Color( 33, 53, 23, 0.2 )
+shader_param/weaponOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/weaponNew = Color( 33, 53, 23, 0.2 )
+shader_param/weaponSecondaryOrigin = Color( 33, 53, 23, 0.2 )
+shader_param/weaponSecondaryNew = Color( 33, 53, 23, 0.2 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 210, 10, 10 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Remove"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="ChatMessage" type="HBoxContainer"]
+margin_right = 600.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 600, 0 )
+size_flags_horizontal = 3
+custom_constants/separation = 16
+script = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 215.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+material = SubResource( 6 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 0
+texture = SubResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Divider" type="Label" parent="HBoxContainer"]
+margin_left = 44.0
+margin_top = 15.0
+margin_right = 44.0
+margin_bottom = 34.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 48.0
+margin_top = 8.0
+margin_right = 215.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 0, 25 )
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0.913725, 0.172549, 0.172549, 1 )
+text = "WilliamQM"
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 231.0
+margin_right = 600.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+custom_constants/margin_top = 10
+custom_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_top = 10.0
+margin_right = 369.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/Remove = SubResource( 1 )

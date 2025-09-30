@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/Input.tres" type="Theme" id=2]
+[ext_resource path="res://Resources/UI/TextNormal.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Login/AutoLogin.gd" type="Script" id=4]
+[ext_resource path="res://Resources/UI/Panel.tres" type="Theme" id=5]
+[ext_resource path="res://Resources/UI/TitleText.tres" type="Theme" id=6]
+[ext_resource path="res://Resources/UI/ButtonPurple.tres" type="Theme" id=7]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=43]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="Theme" id=42]
+Label/colors/font_color = Color( 1, 0, 0, 1 )
+Label/fonts/font = SubResource( 43 )
+
+[node name="AutoLogin" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Panel" type="PanelContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -307.0
+margin_top = -354.5
+margin_right = 307.0
+margin_bottom = 354.5
+theme = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 550.0
+margin_bottom = 694.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 486.0
+margin_bottom = 49.0
+size_flags_vertical = 3
+theme = ExtResource( 6 )
+text = "Login"
+align = 1
+
+[node name="Error" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 65.0
+margin_right = 486.0
+margin_bottom = 98.0
+size_flags_vertical = 3
+theme = SubResource( 42 )
+align = 1
+
+[node name="EmailContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+margin_left = 43.0
+margin_top = 114.0
+margin_right = 443.0
+margin_bottom = 248.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+
+[node name="EmailLabel" type="Label" parent="Panel/VBoxContainer/EmailContainer"]
+margin_right = 400.0
+margin_bottom = 33.0
+theme = ExtResource( 3 )
+text = "Email"
+
+[node name="Email" type="LineEdit" parent="Panel/VBoxContainer/EmailContainer"]
+margin_top = 37.0
+margin_right = 400.0
+margin_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource( 2 )
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="PasswordContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+margin_left = 43.0
+margin_top = 264.0
+margin_right = 443.0
+margin_bottom = 398.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+
+[node name="PasswordLabel" type="Label" parent="Panel/VBoxContainer/PasswordContainer"]
+margin_right = 400.0
+margin_bottom = 33.0
+theme = ExtResource( 3 )
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="Panel/VBoxContainer/PasswordContainer"]
+margin_top = 37.0
+margin_right = 400.0
+margin_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource( 2 )
+secret = true
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Continue" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 414.0
+margin_right = 486.0
+margin_bottom = 514.0
+rect_min_size = Vector2( 0, 100 )
+focus_mode = 0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Continue"
+
+[node name="Back" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 530.0
+margin_right = 486.0
+margin_bottom = 630.0
+rect_min_size = Vector2( 0, 100 )
+focus_mode = 0
+size_flags_horizontal = 3
+theme = ExtResource( 7 )
+text = "Back"

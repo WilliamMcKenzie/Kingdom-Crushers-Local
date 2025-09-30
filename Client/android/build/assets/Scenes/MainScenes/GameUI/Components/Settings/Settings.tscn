@@ -1,0 +1,184 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=3]
+[ext_resource path="res://Scenes/MainScenes/Home/Components/Leaderboard/ScrollContainer.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Settings/Settings.gd" type="Script" id=6]
+[ext_resource path="res://Resources/UI/TitleTextOutlined.tres" type="Theme" id=8]
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=10]
+
+[sub_resource type="Gradient" id=113]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=115]
+gradient = SubResource( 113 )
+fill_from = Vector2( 1, 0.5 )
+fill_to = Vector2( 1, 0.505882 )
+
+[sub_resource type="Gradient" id=114]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=116]
+gradient = SubResource( 114 )
+fill_from = Vector2( 0, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 2 )
+region = Rect2( 130, 220, 10, 10 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="Theme" id=13]
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.501961 )
+Button/fonts/font = SubResource( 10 )
+Button/styles/disabled = SubResource( 12 )
+Button/styles/focus = SubResource( 12 )
+Button/styles/hover = SubResource( 12 )
+Button/styles/normal = SubResource( 12 )
+Button/styles/pressed = SubResource( 12 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxEmpty" id=29]
+
+[sub_resource type="StyleBoxEmpty" id=30]
+
+[sub_resource type="StyleBoxEmpty" id=31]
+
+[sub_resource type="StyleBoxEmpty" id=32]
+
+[sub_resource type="StyleBoxEmpty" id=33]
+
+[sub_resource type="Theme" id=117]
+VScrollBar/styles/grabber = SubResource( 29 )
+VScrollBar/styles/grabber_highlight = SubResource( 30 )
+VScrollBar/styles/grabber_pressed = SubResource( 31 )
+VScrollBar/styles/scroll = SubResource( 32 )
+VScrollBar/styles/scroll_focus = SubResource( 33 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="DarkScreen" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.611765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 115 )
+expand = true
+
+[node name="Vignette" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.631373 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 116 )
+expand = true
+
+[node name="Container" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+custom_constants/separation = 64
+
+[node name="Categories" type="VBoxContainer" parent="Container"]
+margin_right = 350.0
+margin_bottom = 1080.0
+custom_constants/separation = 16
+
+[node name="Title" type="HBoxContainer" parent="Container/Categories"]
+margin_right = 350.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 350, 0 )
+custom_constants/separation = 16
+
+[node name="Label" type="Label" parent="Container/Categories/Title"]
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 54.0
+theme = ExtResource( 8 )
+text = "Settings"
+
+[node name="Icon" type="TextureRect" parent="Container/Categories/Title"]
+material = ExtResource( 3 )
+margin_left = 211.0
+margin_right = 271.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = SubResource( 34 )
+expand = true
+stretch_mode = 5
+
+[node name="Menu" type="Button" parent="Container/Categories"]
+margin_top = 1039.0
+margin_right = 214.0
+margin_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme = SubResource( 13 )
+custom_fonts/font = SubResource( 2 )
+text = "Main Menu"
+icon_align = 1
+expand_icon = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+margin_left = 414.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+
+[node name="Close" type="Button" parent="Container/VBoxContainer"]
+margin_left = 1418.0
+margin_right = 1506.0
+margin_bottom = 33.0
+size_flags_horizontal = 8
+theme = SubResource( 13 )
+text = "Close"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Container/VBoxContainer"]
+margin_top = 49.0
+margin_right = 1506.0
+margin_bottom = 1080.0
+rect_clip_content = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 117 )
+scroll_horizontal_enabled = false
+script = ExtResource( 5 )
+
+[node name="Settings" type="VBoxContainer" parent="Container/VBoxContainer/ScrollContainer"]
+margin_right = 1506.0
+margin_bottom = 1031.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 32
+
+[connection signal="pressed" from="Container/Categories/Menu" to="." method="_on_Home_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Close" to="." method="_on_Close_pressed"]

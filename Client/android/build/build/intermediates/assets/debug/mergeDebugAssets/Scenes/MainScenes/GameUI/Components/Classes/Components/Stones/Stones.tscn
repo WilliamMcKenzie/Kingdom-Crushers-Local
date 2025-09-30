@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=2]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=3]
+[ext_resource path="res://Resources/UI/TitleTextOutlined.tres" type="Theme" id=4]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=5]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Classes/Components/Stones/Stones.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 3 )
+region = Rect2( 1, 130.5, 9, 9 )
+
+[node name="Stones" type="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -209.0
+margin_top = -156.0
+margin_right = 209.0
+margin_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 19 )
+script = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 418.0
+margin_bottom = 313.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 418.0
+margin_bottom = 114.0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+material = ExtResource( 2 )
+margin_left = 136.0
+margin_right = 196.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_vertical = 3
+texture = SubResource( 22 )
+expand = true
+stretch_mode = 5
+
+[node name="Stones" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 200.0
+margin_top = 5.0
+margin_right = 282.0
+margin_bottom = 54.0
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0.266667, 0.843137, 0.407843, 1 )
+text = "0/5"
+align = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 118.0
+margin_right = 418.0
+margin_bottom = 259.0
+theme = ExtResource( 5 )
+text = "You need to consume 5 more ascension stones to be able to unlock a new class."
+align = 1
+autowrap = true

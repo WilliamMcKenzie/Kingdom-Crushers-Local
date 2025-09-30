@@ -1,0 +1,380 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Resources/UI/Panel.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/ColorGear.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=3]
+[ext_resource path="res://Resources/UI/ButtonGreen.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Inventory/Components/ItemSlot/DisplaySlot/DisplaySlot.gd" type="Script" id=5]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=6]
+[ext_resource path="res://Assets/characters/characters_8x8.png" type="Texture" id=7]
+[ext_resource path="res://Resources/UI/MediumTextOutlined.tres" type="Theme" id=8]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Death/Death.gd" type="Script" id=9]
+[ext_resource path="res://Resources/UI/TitleTextOutlined.tres" type="Theme" id=10]
+
+[sub_resource type="Gradient" id=109]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=111]
+gradient = SubResource( 109 )
+fill_from = Vector2( 1, 0.5 )
+fill_to = Vector2( 1, 0.505882 )
+
+[sub_resource type="Gradient" id=110]
+offsets = PoolRealArray( 0, 0.522936, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=112]
+gradient = SubResource( 110 )
+fill_from = Vector2( 0, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[sub_resource type="AtlasTexture" id=1]
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 150, 220, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 60, 40, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=4]
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 160, 220, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 60, 40, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=7]
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 170, 220, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 6 )
+region = Rect2( 60, 40, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 6 )
+region = Rect2( 2.22222e+07, 2222, 10, 10 )
+
+[sub_resource type="Animation" id=113]
+resource_name = "Default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Vignette/DarkScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.972549 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Vignette/Vignette:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.972549 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PanelContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=114]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Vignette/DarkScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.972549 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Vignette/Vignette:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.972549 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PanelContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[node name="Death" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 9 )
+
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="DarkScreen" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.611765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 111 )
+expand = true
+
+[node name="Vignette" type="TextureRect" parent="Vignette"]
+modulate = Color( 1, 1, 1, 0.972549 )
+self_modulate = Color( 1, 1, 1, 0.631373 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 112 )
+expand = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -313.5
+margin_right = 250.0
+margin_bottom = 313.5
+rect_min_size = Vector2( 500, 400 )
+theme = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 452.0
+margin_bottom = 579.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 388.0
+margin_bottom = 57.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource( 10 )
+custom_colors/font_color = Color( 0.752941, 0.219608, 0.219608, 1 )
+text = "YOU DIED!"
+align = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 73.0
+margin_right = 388.0
+margin_bottom = 130.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource( 8 )
+text = "Lv. 1 Nomad"
+align = 1
+
+[node name="Items" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 146.0
+margin_right = 388.0
+margin_bottom = 226.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="weapon" type="TextureButton" parent="PanelContainer/VBoxContainer/Items"]
+margin_left = 70.0
+margin_right = 150.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_vertical = 3
+expand = true
+script = ExtResource( 5 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="PanelContainer/VBoxContainer/Items/weapon"]
+scale = Vector2( 2, 2 )
+normal = SubResource( 1 )
+
+[node name="Background" type="TextureRect" parent="PanelContainer/VBoxContainer/Items/weapon"]
+modulate = Color( 0, 0, 0, 0.313726 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Items/weapon"]
+visible = false
+material = ExtResource( 3 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="helmet" type="TextureButton" parent="PanelContainer/VBoxContainer/Items"]
+margin_left = 154.0
+margin_right = 234.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_vertical = 3
+expand = true
+script = ExtResource( 5 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="PanelContainer/VBoxContainer/Items/helmet"]
+scale = Vector2( 2, 2 )
+normal = SubResource( 4 )
+
+[node name="Background" type="TextureRect" parent="PanelContainer/VBoxContainer/Items/helmet"]
+modulate = Color( 0, 0, 0, 0.313726 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Items/helmet"]
+visible = false
+material = ExtResource( 3 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="armor" type="TextureButton" parent="PanelContainer/VBoxContainer/Items"]
+margin_left = 238.0
+margin_right = 318.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_vertical = 3
+expand = true
+script = ExtResource( 5 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="PanelContainer/VBoxContainer/Items/armor"]
+scale = Vector2( 2, 2 )
+normal = SubResource( 7 )
+
+[node name="Background" type="TextureRect" parent="PanelContainer/VBoxContainer/Items/armor"]
+modulate = Color( 0, 0, 0, 0.313726 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Items/armor"]
+visible = false
+material = ExtResource( 3 )
+margin_right = 80.0
+margin_bottom = 80.0
+texture = SubResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="CharacterContainer" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+material = ExtResource( 3 )
+margin_left = 114.0
+margin_top = 242.0
+margin_right = 274.0
+margin_bottom = 402.0
+rect_min_size = Vector2( 160, 160 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Character" type="Sprite" parent="PanelContainer/VBoxContainer/CharacterContainer"]
+material = ExtResource( 3 )
+position = Vector2( 85.9999, 91 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 7 )
+hframes = 4
+vframes = 4
+region_enabled = true
+region_rect = Rect2( 0, 0, 80, 40 )
+script = ExtResource( 2 )
+
+[node name="Continue" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 418.0
+margin_right = 388.0
+margin_bottom = 515.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+text = "Continue"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Default"
+anims/Default = SubResource( 113 )
+anims/RESET = SubResource( 114 )
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]

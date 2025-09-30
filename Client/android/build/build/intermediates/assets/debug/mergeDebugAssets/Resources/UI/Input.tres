@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/sonoma_semibold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=43]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=44]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 64.0
+margin_right = 48.0
+margin_top = 32.0
+margin_bottom = 32.0
+modulate_color = Color( 0.898039, 0.898039, 0.898039, 1 )
+
+[sub_resource type="StyleBoxTexture" id=41]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 64.0
+margin_right = 48.0
+margin_top = 32.0
+margin_bottom = 32.0
+
+[resource]
+LineEdit/fonts/font = SubResource( 43 )
+LineEdit/styles/focus = SubResource( 44 )
+LineEdit/styles/normal = SubResource( 41 )
+LineEdit/styles/read_only = SubResource( 41 )

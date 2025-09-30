@@ -1,0 +1,8 @@
+{
+    "arrow" : {
+        "damage" : [20,30],
+        "speed" : 50,
+        "lifetime" : 0.5,
+        "piercing" : false
+    }
+}

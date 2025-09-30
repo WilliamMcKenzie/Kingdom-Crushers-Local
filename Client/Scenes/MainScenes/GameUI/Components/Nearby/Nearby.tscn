@@ -1,0 +1,201 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Resources/UI/MediumTextOutlined.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/ui/gui-large.png" type="Texture" id=2]
+[ext_resource path="res://Resources/UI/TextNormalOutlined.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/items/items_8x8.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Renderer.tres" type="Material" id=5]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Components/Nearby/Nearby.gd" type="Script" id=6]
+[ext_resource path="res://Assets/characters/characters_8x8.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/MainScenes/Instances/Components/Player/Components/ColorGear.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/MainScenes/GameUI/Background.gd" type="Script" id=9]
+[ext_resource path="res://Resources/UI/PanelGUI.tres" type="Theme" id=11]
+[ext_resource path="res://Resources/UI/ButtonGUI.tres" type="Theme" id=12]
+[ext_resource path="res://Resources/UI/ButtonGUIRenderer.tres" type="Material" id=13]
+
+[sub_resource type="StyleBoxTexture" id=48]
+texture = ExtResource( 2 )
+region_rect = Rect2( 896, 128, 128, 128 )
+margin_left = 64.0
+margin_right = 64.0
+margin_top = 64.0
+margin_bottom = 64.0
+modulate_color = Color( 0, 0, 0, 0.392157 )
+
+[sub_resource type="Theme" id=66]
+PanelContainer/styles/panel = SubResource( 48 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 4 )
+region = Rect2( 2.22222e+07, 2222, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 4 )
+region = Rect2( 70, 220, 10, 10 )
+
+[sub_resource type="StyleBoxEmpty" id=53]
+
+[sub_resource type="Theme" id=38]
+PanelContainer/styles/panel = SubResource( 53 )
+
+[node name="Nearby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 6 )
+
+[node name="Background" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 400, 180 )
+expand = true
+script = ExtResource( 9 )
+
+[node name="Nearby" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -419.0
+grow_horizontal = 0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Player" type="PanelContainer" parent="Nearby"]
+visible = false
+margin_right = 401.0
+margin_bottom = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme = SubResource( 66 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Nearby/Player"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 337.0
+margin_bottom = 475.0
+theme = ExtResource( 12 )
+
+[node name="Name" type="Label" parent="Nearby/Player/VBoxContainer"]
+margin_right = 273.0
+margin_bottom = 41.0
+theme = ExtResource( 1 )
+text = "WilliamQM"
+align = 1
+
+[node name="Level" type="Label" parent="Nearby/Player/VBoxContainer"]
+margin_top = 45.0
+margin_right = 273.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 0, 40 )
+custom_colors/font_color = Color( 1, 1, 1, 0.607843 )
+text = "Lv. 20 Apprentice"
+align = 1
+
+[node name="CharacterContainer" type="TextureRect" parent="Nearby/Player/VBoxContainer"]
+material = ExtResource( 5 )
+margin_left = 76.0
+margin_top = 89.0
+margin_right = 196.0
+margin_bottom = 209.0
+rect_min_size = Vector2( 120, 120 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 65 )
+expand = true
+stretch_mode = 5
+
+[node name="Character" type="Sprite" parent="Nearby/Player/VBoxContainer/CharacterContainer"]
+material = ExtResource( 5 )
+position = Vector2( 71, 60 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 7 )
+hframes = 4
+vframes = 4
+region_enabled = true
+region_rect = Rect2( 0, 0, 80, 40 )
+script = ExtResource( 8 )
+
+[node name="Teleport" type="Button" parent="Nearby/Player/VBoxContainer"]
+margin_top = 213.0
+margin_right = 273.0
+margin_bottom = 310.0
+rect_min_size = Vector2( 0, 36 )
+focus_mode = 0
+text = "Teleport"
+
+[node name="Trade" type="Button" parent="Nearby/Player/VBoxContainer"]
+margin_top = 314.0
+margin_right = 273.0
+margin_bottom = 411.0
+rect_min_size = Vector2( 0, 36 )
+text = "Trade"
+
+[node name="Close" type="Button" parent="Nearby"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 12 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Nearby/Close"]
+material = ExtResource( 13 )
+position = Vector2( 20, 20 )
+scale = Vector2( 8, 8 )
+z_index = 22
+normal = SubResource( 11 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Nearby"]
+margin_left = 136.0
+margin_right = 492.0
+margin_bottom = 1080.0
+theme = ExtResource( 11 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Nearby/PanelContainer"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 324.0
+margin_bottom = 1048.0
+grow_horizontal = 0
+rect_min_size = Vector2( 200, 0 )
+custom_constants/separation = 16
+
+[node name="Label" type="Label" parent="Nearby/PanelContainer/VBoxContainer"]
+margin_right = 292.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+text = "Nearby Players"
+align = 1
+
+[node name="None" type="Label" parent="Nearby/PanelContainer/VBoxContainer"]
+visible = false
+margin_top = 116.0
+margin_right = 409.0
+margin_bottom = 151.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 0.54902 )
+text = "None Found!"
+align = 1
+valign = 1
+
+[node name="NearbyPlayers" type="VBoxContainer" parent="Nearby/PanelContainer/VBoxContainer"]
+margin_top = 116.0
+margin_right = 292.0
+margin_bottom = 1016.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 3
+theme = SubResource( 38 )
+custom_constants/separation = 16
+
+[connection signal="pressed" from="Background" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="Nearby/Player/VBoxContainer/Teleport" to="." method="_on_Teleport_pressed"]
+[connection signal="pressed" from="Nearby/Player/VBoxContainer/Trade" to="." method="_on_Trade_pressed"]
+[connection signal="pressed" from="Nearby/Close" to="." method="_on_Close_pressed"]
