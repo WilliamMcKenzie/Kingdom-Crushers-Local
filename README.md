@@ -1,9 +1,7 @@
 Kingdom Crushers is a lightweight yet beautiful open world MMO, inspired by ROTMG. To emphasize how lightweight it is, the game server itself is running on a 10$/mo Digital Ocean Ubuntu server!
 
 <a href="https://kingdomcrushers.io">kingdomcrushers.io</a>
-
-<br></br>
-
+<br></br
 <a href="https://play.google.com/store/apps/details?id=com.williamqm.mmorelam" target="_blank">
   <img alt="Get it on Google Play"
        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
