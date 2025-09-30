@@ -8,7 +8,6 @@ Kingdom Crushers is a lightweight yet beautiful open world MMO, inspired by ROTM
        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
        height="80"/>
 </a>
-
 <br></br>
 
 <a href="https://www.producthunt.com/posts/quizzgen?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-quizzgen" target="_blank">
